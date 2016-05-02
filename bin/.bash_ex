@@ -1,0 +1,39 @@
+echo ".bash_ex sourced"
+
+export BASH_EX=1
+
+source ~/projects/bash_lib/require.sh
+
+things=(
+	fix_mingw
+	load_user_profile
+	print_plan
+	ssh_completion
+	cheat_completion
+	mvn_completion
+	ln
+	killall_java
+	fav
+	find_jar_of_class
+	find_jar_on_classpath
+	ssh_setup_public_key
+	find_proxies
+	git_change_commiter
+	git_change_identity
+	is_mingw
+	is_linux
+	is_bash_4
+	require_package
+	fix_npm
+	git_remote_add_from_clipboard
+	git_what_have_i_done
+	git_what_have_they_done
+	)
+
+for thing in ${things[@]} ; do
+	require $thing
+done
+
+fix_mingw
+load_user_profile
+print_plan
