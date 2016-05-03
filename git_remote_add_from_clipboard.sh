@@ -1,10 +1,7 @@
 #!/bin/bash
 
-source_relative require_package is_linux
-
-if is_linux ; then
-	require_package xclip git
-
+if require_package xclip git ; then
+	
 	# adds a new remote, git url is grabbed from clipboard
 	function git_remote_add_from_clipboard() {
 	  local remote

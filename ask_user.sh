@@ -5,7 +5,8 @@ function ask_user() {
 
   case $# in
     1) # yes or no question
-      read -r "$1 [Y]/n" VAR
+	  echo "$1 [Y]/n"
+      read -r VAR
       if [ -z "$VAR" ] || [ 'y' == "$VAR" ] || [ 'Y' == "$VAR" ] ; then
         return 0
       fi

@@ -1,19 +1,14 @@
 #!/bin/bash
 
+source_relative install_package
+# check for existing tools
+# require_package npm git curl ssh
 function require_package() {
-  UNAME="$(uname)"
-  case $UNAME in
-    MINGW*)
-	  # TODO add existing mingw tools here
-      return 0
-      ;;
-    Linux)
-      echo "require $1"
-      if ! type -t $1 2>&1 >> /dev/null ; then
-        echo "$1 not installed yet!"
-        sudo apt-get install $1
-        return $?
-      fi
-      ;;
-  esac
+  while (( $#  > 0 )) ; do
+	if ! type -t $1 2>&1 >> /dev/null ; then
+  	  echo "$1 is not installed!"
+	  install_package "$1" || return 1
+    fi
+	shift
+  done
 }

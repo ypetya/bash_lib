@@ -8,12 +8,39 @@ function return_into() {
   eval "$ret_var='$var'"
 }
 
+
 function create_map() {
-  declare -A $1
+  declare -gA $1
+}
+
+function examples() {
+    
+	# declare associative array
+	declare -A assoc_array=(["key1"]="value1" ["key2"]="value2")
+	# convert associative array to string
+	assoc_array_string=$(declare -p assoc_array)
+	# create new associative array from string
+	eval "declare -A new_assoc_array="${assoc_array_string#*=}
+	# show array definition
+	declare -p new_assoc_array
+}
+
+# FIXME expr not available in mingw!
+function cp_hash
+{
+    local original_hash_name="$1"
+    local copy_hash_name="$2"
+
+    local __copy__=$(declare -p $original_hash_name);
+    eval declare -A __copy__="${__copy__:$(expr index "${__copy__}" =)}";
+
+    for i in "${!__copy__[@]}"
+    do
+        eval ${copy_hash_name}[$i]=${__copy__[$i]}
+    done
 }
 
 function create_week_days() {
-  create_map week
 
   week[1]='Mon'
   week[2]='Tue'
@@ -26,9 +53,9 @@ function create_week_days() {
   print_map week
 }
 
+# FIXME not working
 function print_map() {
-  eval "input=$"$1""
-
-  echo "keys : ${!input[@]}"
-  echo "values : ${input[@]}"
+  local map=$(declare -p "${1? param missing. [associative array]}")
+  echo "keys : ${!map[@]}"
+  echo "values : ${map[@]}"
 }

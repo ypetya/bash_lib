@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ -z "$CHEAT" ] ; then
-  echo '$CHEAT not defined!'
-else
+if require_package cheat ; then
   cheat_completion()
   {
       local cur=${COMP_WORDS[COMP_CWORD]}

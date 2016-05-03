@@ -1,12 +1,24 @@
 #!/bin/bash
 
+source_relative ask_user
+
+# setup proxy server variables for curl, nodejs and git
+# ask user input, when no parameters defined
 function setup_proxy_manual() {
+	local host="$1"
+	local PROXY_PORT="$2"
+	
 	local password
-	local host
-	local PROXY_PORT
-	read -rsp "Please enter password for user $USER :" password
-	read -rp "Please enter proxy host :" host
-	read -rp "Please enter proxy port :" PROXY_PORT
+	echo "Please enter password for user $USER :"
+	read -rs password
+	
+	if [ -z "$host" ] ; then
+		ask_user "Please enter proxy host :" host
+	fi
+	
+	if [ -z "$PROXY_PORT" ] ; then
+		ask_user "Please enter proxy port :" PROXY_PORT
+	fi
 	# --- proxy
 	local PROXY_SERVER="http://$USER:$password@$host"
 	if [ ! -z "$host" ] ; then
@@ -19,5 +31,7 @@ function setup_proxy_manual() {
 	  # git
 	  export http_proxy="$PROXY_SERVER:$PROXY_PORT"
 	  export https_proxy="$PROXY_SERVER:$PROXY_PORT"
+	  # java
+	  export JAVA_OPTS="-Dhttp.proxyHost=$PROXY_SERVER -Dhttp.proxyPort=$PROXY_PORT"
 	fi
 }

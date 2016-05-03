@@ -5,6 +5,7 @@ export BASH_EX=1
 source ~/projects/bash_lib/require.sh
 
 things=(
+	require_completion
 	fix_mingw
 	load_user_profile
 	print_plan
