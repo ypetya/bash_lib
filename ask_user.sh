@@ -5,13 +5,14 @@ function ask_user() {
 
   case $# in
     1) # yes or no question
-      read -rp "$1 [Y]/n" VAR
+      read -r "$1 [Y]/n" VAR
       if [ -z "$VAR" ] || [ 'y' == "$VAR" ] || [ 'Y' == "$VAR" ] ; then
         return 0
       fi
       ;;
     2) # output into var
-      read -rp "$1" $2
+	  echo "$1"
+      read -r $2
       ;;
   esac
 
