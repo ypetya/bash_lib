@@ -12,23 +12,27 @@ function init() {
 	DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 	source "$DIR/get_source_dir.sh"
-	source "$DIR/source_relative.sh"
+	source "$DIR/import.sh"
 }
 
 init
 # assume require_package is available in all environments
-source_relative require_package
+import require_package print
 
 # require all the parameters
 function require() {
 	for param_in in "$@" ; do
 		local param="${param_in%%.sh}"
-		source_relative "$param"
+		import "$param"
 		local is_a=$(type -t "$param")
+		print yellow "$param"
+		
 		if [ ! -z "$is_a" ] ; then
-			echo -e "\e[33m$param\e[0m required : \e[32m$is_a\e[0m"
+			print ' required as a '
+			print green "$is_a\n"
 		else
-			echo -e "\e[33m$param\e[0m required : \e[31mis missing\e[0m"
+			print ' is '
+			print red "missing\n"
 		fi
 	done
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative is_job_running
+import is_job_running
 
 function run_job() {
 	local job="${1? param missing - please specify a runnable job}"

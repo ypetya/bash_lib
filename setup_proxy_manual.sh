@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative ask_user
+import ask_user
 
 # setup proxy server variables for curl, nodejs and git
 # ask user input, when no parameters defined

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative list
+import list
 
 function require_completion() {
   local cur=${COMP_WORDS[COMP_CWORD]}

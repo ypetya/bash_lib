@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source_relative is_mingw
+import is_mingw
 
 # TODO fix this function for *nix
-is_mingw || (echo " not mingw " && return 1)
+is_mingw || (error " not mingw " && return 1)
 
 function is_job_running() {
 	local job="${1? param missing - please specify a runnable job}"

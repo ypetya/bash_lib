@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative npm_require_global
+import npm_require_global
 
 npm_require_global http-server
 

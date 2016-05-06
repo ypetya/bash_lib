@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative install_package
+import install_package
 # check for existing tools
 # require_package npm git curl ssh
 function require_package() {

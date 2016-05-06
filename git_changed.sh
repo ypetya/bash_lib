@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source_relative git_get_changes_number
+import git_get_changes_number
 
 function git_changed() {
 	if [ git_get_changes_number == "0" ] ; then
