@@ -1,28 +1,27 @@
 #!/bin/bash
 
+import is_mingw error ask_user print
+
+is_mingw || ( error 'not mingw' && return 1 )
+
 function ln() {
-  echo "WARNING! 'ln' is an unsupported command on this platform."
-  echo " * The following command was called:"
-  echo "ln $@"
+  print yellow "WARNING! 'ln' is an unsupported command on this platform."
+  print "ln $@"
 
   if [ $1 = "-s" ] ; then
     echo " * Trying to translate it to a simple copy command : "
     COMMAND="cp -R $2 $3"
     echo "$COMMAND"
     if [ -d $3 ] ; then
-      echo "Destenation directory already exists! command may fail!"
+      print yellow "Destenation directory already exists! command may fail!"
     fi 
-    echo "Continue? Y/n"
-    read -r "CONTINUE"
-    if [ $CONTINUE = "n" ] ; then 
-      echo "Returning with code : 1"
-      return 1
-    fi
-    $COMMAND
-    return $?
+    if ask_user 'Continue?' ; then
+		$COMMAND
+		return $?
+	fi      
   else
-    echo "Only -s option is supported"
-    echo "Returning with code : 1"
-    return 1
+    print "Only -s option is supported"
   fi
+  
+  return 1
 }

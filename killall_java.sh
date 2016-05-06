@@ -1,17 +1,12 @@
 #!/bin/bash
 
-function killall_java() {
-  if [ ! $( type -t jps ) == "file" ] ; then
-    echo "jps not found! It is part of the JDK, please setup to the PATH!"
-    return 1
-  fi
-  
-  if [ ! $( type -t taskkill) == "file" ] ; then
-    echo "taskkill not found!"
-    return 1
-  fi
+import require_package
 
-  PIDS=( $(jps | cut -d' ' -f1) )
+require_package jps taskkill || ( error "missing dependency!" && return 1 )
+
+function killall_java() {
+  unset PIDS
+  local PIDS=( $(jps | cut -d' ' -f1) )
   PIDS=(${PIDS[@]:1})
   for pid in $PIDS; do
     taskkill //f //pid $pid
