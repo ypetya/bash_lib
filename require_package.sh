@@ -6,7 +6,7 @@ import install_package
 function require_package() {
   while (( $#  > 0 )) ; do
 	if ! type -t $1 2>&1 >> /dev/null ; then
-  	  echo "$1 is not installed!"
+  	  debug "$1 is not installed!"
 	  install_package "$1" || return 1
     fi
 	shift

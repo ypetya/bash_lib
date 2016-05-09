@@ -6,30 +6,33 @@
 #
 # $ require fav killall_java git_helpers
 
+DEBUG=0
 
-# require source_relative - which can be used by any local script
+# require import - which can be used by any local script
 function init() {
 	DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 	source "$DIR/get_source_dir.sh"
 	source "$DIR/import.sh"
 }
-
 init
-# assume require_package is available in all environments
-import require_package print
+
+# assume following modules are available for all
+import require_package debug print error
 
 # require all the parameters
 function require() {
 	for param_in in "$@" ; do
 		local param="${param_in%%.sh}"
+		local fn_name="${param#*/}"
 		import "$param"
-		local is_a=$(type -t "$param")
-		print yellow "$param"
+		local is_a=$(type -t "$fn_name")
+		print yellow "$fn_name"
 		
 		if [ ! -z "$is_a" ] ; then
 			print ' required as a '
 			print green "$is_a\n"
+			#export -f "$fn_name"
 		else
 			print ' is '
 			print red "missing\n"
@@ -37,5 +40,4 @@ function require() {
 	done
 }
 
-shift
-require $@
+[[ "$BASH_SOURCE" == "$0" ]] && require "${@:1}"

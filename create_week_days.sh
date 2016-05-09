@@ -1,8 +1,7 @@
 #!/bin/bash
 
 function create_week_days() {
-	unset week_days
-	declare -gA week_days
+	create_map week_days
 
 	week_days[1]='Mon'
 	week_days[2]='Tue'

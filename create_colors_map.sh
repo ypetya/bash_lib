@@ -1,8 +1,9 @@
 #!/bin/bash
 
+import create_map
+
 function create_colors_map() {
-	unset colors
-	declare -gA colors
+	create_map colors
 	
 	colors[default]=0
 	colors[red]=31
