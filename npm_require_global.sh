@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import error
+
 if require_package npm ; then
 
 	npm_require_global() {

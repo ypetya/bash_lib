@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import require_package error
+import error
 
 if require_package jps taskkill ; then
 

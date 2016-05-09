@@ -2,8 +2,7 @@
 
 import is_mingw
 
-# TODO fix this function for *nix
-is_mingw || (error " not mingw " && return 1)
+if is_mingw ; then
 
 function is_job_running() {
 	local job="${1? param missing - please specify a runnable job}"
@@ -14,3 +13,7 @@ function is_job_running() {
 	# it is running
 }
 
+else
+	error " not mingw "
+	return 1
+fi

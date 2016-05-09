@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 
-GRUNT_FILE=/e
+import run_job error
 
 function main() {
 	case $1 in
@@ -85,7 +85,7 @@ function check_eslint {
 # Checking ci-build
 function check_ci {
   if ! grunt ci-build ; then
-    echo ' * ci-build is failing'
+    error ' * ci-build is failing'
     exit 1
   fi
 }
@@ -93,23 +93,12 @@ function check_ci {
 
 function check_and_run {
   case $1 in
-    babel)
-      if [ -z "$(jobs | grep -E 'Running.*babel-watch')" ]; then
-        npm run-script babel-watch &
-        PID_BABEL_W="$!"
-      fi
+    babel) run_job 'npm run-script babel-watch'
+	;;
+    run) run_job "run -e $ENV $DEPS"
     ;;
-    run)
-      if [ -z "$(jobs | grep -E 'Running.*run -e')" ]; then
-        run -e $ENV $DEPS &
-        PID_RUN="$!"
-      fi
+    css) run_job "grunt compass:dev"
     ;;
-    css)
-      if [ -z "$(jobs | grep -E 'Running.*compass:dev')" ]; then
-        grunt compass:dev &
-        PID_RUN="$!"
-      fi
   esac
 }
 
