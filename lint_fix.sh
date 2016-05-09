@@ -2,11 +2,11 @@
 
 require_package npm grunt
 
-import error
+import is_file
 
 function lint_fix () {
 	if ! is_file package.json ; then 
-		error 'There is no package.json in the directory!'
+		error 'There is no package.json in this directory!'
 		return 1
 	else
 		if ! grunt eslint:dev ; then

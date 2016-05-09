@@ -6,7 +6,7 @@ function install_package() {
   
 	case $UNAME in
 		MINGW*)
-			echo "Do not now how to install $1"
+			debug "Do not now how to install $1"
 			return 1
 		  ;;
 		Linux)

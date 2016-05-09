@@ -1,7 +1,8 @@
 #!/bin/bash
 # set -x
 
-import run_job error
+~/bash_lib/require.sh
+import run_job create_map lint_fix
 
 function main() {
 	case $1 in
@@ -9,7 +10,7 @@ function main() {
 			execute_run $@
 			;;
 		lint)
-			check_eslint
+			lint_fix
 			;;
 		ci) check_ci
 			;;
@@ -72,15 +73,6 @@ $prog install <module>
 HELP
 }
 
-# Checking and auto-fixing eslint issues
-function check_eslint {
-  if ! grunt eslint:dev ; then
-    echo ' * eslint failed, executing eslint fix'
-    npm run eslint-fix
-    echo ' * Please review commit, stage changes and try again!'
-    exit 1
-  fi
-}
 
 # Checking ci-build
 function check_ci {
@@ -90,16 +82,17 @@ function check_ci {
   fi
 }
 
+function setup_jobs() {
+	create_map JOBS
+	
+	JOBS[babel]='npm run-script babel-watch'
+	JOBS[run]="run -e $ENV $DEPS"
+	JOBS[css]="grunt compass:dev"
+}
 
 function check_and_run {
-  case $1 in
-    babel) run_job 'npm run-script babel-watch'
-	;;
-    run) run_job "run -e $ENV $DEPS"
-    ;;
-    css) run_job "grunt compass:dev"
-    ;;
-  esac
+  local job="${JOBS[$1]}"
+  run_job "$job"
 }
 
 function execute_run {
@@ -110,12 +103,13 @@ function execute_run {
 	else
 	  DEPS="--deps $2"
 	fi
-	
-	local tasks=(babel css run)
+
+
+	setup_jobs
 	
 	while true; do
-	  for task in ${tasks[@]} ; do
-		check_and_run $task
+	  for job in ${JOBS[@]} ; do
+		check_and_run $job
 	  done	
 	  sleep 3
 	done

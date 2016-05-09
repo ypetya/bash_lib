@@ -1,9 +1,6 @@
 #!/bin/bash
 
-import error
-
 if require_package jps taskkill ; then
-
 	function killall_java() {
 	  unset PIDS
 	  local PIDS=( $(jps | cut -d' ' -f1) )
@@ -12,8 +9,4 @@ if require_package jps taskkill ; then
 		taskkill //f //pid $pid
 	  done
 	}
-
-else
-	error "missing dependency!"
-	return 1
 fi

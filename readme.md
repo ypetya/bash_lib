@@ -11,6 +11,10 @@ Than you can source any other scripts via the require command
 Tips
 ====
 
+try to use variable DEBUG=1
+
+external:
+
 * Checks : http://www.shellcheck.net/
 * Colors and formatting : http://misc.flogisoft.com/bash/tip_colors_and_formatting
 * Programming style : https://github.com/progrium/bashstyle
