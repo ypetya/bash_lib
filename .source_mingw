@@ -1,0 +1,14 @@
+
+source "${BASH_SOURCE%/*}/require.sh"
+
+import list
+
+things=($(list))
+
+for thing in ${things[@]} ; do
+	require $thing
+done
+
+fix_mingw
+load_user_profile
+print_plan
