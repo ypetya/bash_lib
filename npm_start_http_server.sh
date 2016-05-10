@@ -2,10 +2,9 @@
 
 import npm_require_global
 
-npm_require_global http-server
-
 # example call to use directory browse, CORS and open browser:
 # http-server -do --cors
-function npm_start_http_server() {	
+function npm_start_http_server() {
+	npm_require_global http-server
 	~/http-server $@
 }
