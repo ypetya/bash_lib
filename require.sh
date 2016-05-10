@@ -10,7 +10,7 @@ DEBUG=0
 
 # require import - which can be used by any local script
 function init() {
-	DIR="${BASH_SOURCE%/*}"
+	local DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 	source "$DIR/get_source_dir.sh"
 	source "$DIR/import.sh"
@@ -28,9 +28,8 @@ function require() {
 		import "$param"
 		local is_a=$(type -t "$fn_name")
 		print yellow "$fn_name"
-		
 		if [ ! -z "$is_a" ] ; then
-			print ' required as a '
+			print ' is a '
 			print green "$is_a\n"
 			#export -f "$fn_name"
 		else
