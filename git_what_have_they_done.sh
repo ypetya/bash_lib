@@ -34,6 +34,8 @@ function git_what_have_they_done() {
 			files[$key]=''
 		fi
 	done
+	# compact
+	files=(${files[@]})
 	
 	print 'Total files : '
 	print yellow "${#files[@]}\n"
