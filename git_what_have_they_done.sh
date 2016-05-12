@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import is_directory is_file_in_git is_text_file list_counts_desc 
+import is_directory is_text_file list_counts_desc 
 import print error
 import git_changed
 import timer
@@ -23,19 +23,11 @@ function git_what_have_they_done() {
 	local files=()
 	
 	if is_directory "$target" ; then
-		files=( $(find "$target" -maxdepth 1 -type f ) )
+		pushd "$target" >> /dev/null
 	else
-		files=( $(find . -type f ) )
+		pushd . >> /dev/null
 	fi
-	
-	# Apply blackList : lets remove ./.git/*
-	for key in ${!files[@]} ; do
-		if [ "${files[$key]%%./.git/*}" == "" ] ; then
-			files[$key]=''
-		fi
-	done
-	# compact
-	files=(${files[@]})
+	files=( $(git ls) )
 	
 	print 'Total files : '
 	print yellow "${#files[@]}\n"
@@ -44,7 +36,7 @@ function git_what_have_they_done() {
 	local new_commiters=()
 	
 	for file in ${files[@]} ; do
-		if is_file_in_git "$file" && is_text_file "$file" ; then
+		if is_text_file "$file" ; then
 			new_commiters=( $(git blame $file -e -w | sed -r "$extract_commiter") )
 			commiters=( ${new_commiters[@]} ${commiters[@]} )
 			processed_files=( ${processed_files[@]} "$file" )
@@ -61,6 +53,7 @@ function git_what_have_they_done() {
 		echo "${commiter,,}"
 	done | list_counts_desc
 	
+	popd >> /dev/null
 	timer_stop
   fi
 }
