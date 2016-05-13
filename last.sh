@@ -1,5 +1,6 @@
 #!/bin/bash
 
 function last() {
-	tail -n 1
+	local lines=${1:-1}
+	tail -n "$lines"
 }
