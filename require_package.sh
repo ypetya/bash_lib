@@ -1,8 +1,10 @@
 #!/bin/bash
 
 import install_package
-# check for existing tools
-# require_package npm git curl ssh
+# check for existing tools like the following:
+#
+# $ require_package npm git curl ssh
+#
 function require_package() {
   while (( $#  > 0 )) ; do
 	if ! type -t $1 2>&1 >> /dev/null ; then
