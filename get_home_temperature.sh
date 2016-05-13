@@ -1,0 +1,18 @@
+#!/bin/bash
+
+import first
+
+function get_home_temperature() {
+	# below logic gets and parses a jon, to find the endpoint need to 
+	# turn to $1 - my dyndns, $2 - location id
+	local endpoint=$(
+		curl -sL "http://${1? param missing - enter dyndns json service accesspoint}" | \
+			sed -r 's/},/\n/g' | sed -r 's/[\[{}\]]//g' | \
+			sed -r 's/"[a-z]+"://g' | sed -r 's/"//g' | \
+			grep ${2? param missing - enter location name} | \
+			cut -d ',' -f 3)
+	
+	curl -sL "http://$endpoint/temp/q" | \
+		grep OK | first | sed -r 's/[ {}]//g'
+	
+}
