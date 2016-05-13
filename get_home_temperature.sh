@@ -7,8 +7,7 @@ function get_home_temperature() {
 	# turn to $1 - my dyndns, $2 - location id
 	local endpoint=$(
 		http_get "http://${1? param missing - enter dyndns json service accesspoint}" | \
-			sed -r 's/},/\n/g' | sed -r 's/[\[{}\]]//g' | \
-			sed -r 's/"[a-z]+"://g' | sed -r 's/"//g' | \
+			sed -r 's/},/\n/g;s/[\[{}\]]//g;s/"[a-z]+"://g;s/"//g' | \
 			grep ${2? param missing - enter location name} | \
 			cut -d ',' -f 3)
 	
