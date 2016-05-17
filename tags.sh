@@ -1,5 +1,5 @@
 #!/bin/bash
 
 function tags() {
-	git tag -l $@
+	git tag -l --sort="version:refname" $@
 }
