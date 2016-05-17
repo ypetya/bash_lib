@@ -4,6 +4,7 @@ import is_directory is_text_file list_counts_desc
 import print error
 import git_changed
 import timer
+import sed_git_extract_commiter
 
 # returns a statistic on commited lines
 # param $1 can be a file or directory, or leave it empty to work on the full repo
@@ -15,9 +16,8 @@ function git_what_have_they_done() {
   fi
   timer
   local target="${1}"
-  local extract_commiter='s/^[^@]*?(\(<)([^@]*?)(@.*)/\2/'
   if is_file_in_git "$target" ; then
-    git blame $target -e -w |  sed -r "$extract_commiter" | list_counts_desc
+    git blame $target -e -w |  sed -r "$sed_git_extract_commiter" | list_counts_desc
   else 
 	local commiters=()
 	local files=()
@@ -37,7 +37,7 @@ function git_what_have_they_done() {
 	
 	for file in ${files[@]} ; do
 		if is_text_file "$file" ; then
-			new_commiters=( $(git blame $file -e -w | sed -r "$extract_commiter") )
+			new_commiters=( $(git blame $file -e -w | sed -r "$sed_git_extract_commiter") )
 			commiters=( ${new_commiters[@]} ${commiters[@]} )
 			processed_files=( ${processed_files[@]} "$file" )
 		fi
