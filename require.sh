@@ -18,7 +18,7 @@ function init() {
 init
 
 # assume following modules are available for all
-import require_package debug print error
+import require_package is_variable debug print error
 
 # require all the parameters
 function require() {
@@ -32,6 +32,9 @@ function require() {
 			print ' is a '
 			print green "$is_a\n"
 			#export -f "$fn_name"
+		elif is_variable $fn_name ; then
+			print ' is a '
+			print green "variable\n"
 		else
 			print ' is '
 			print red "missing\n"
