@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import is_mingw error ask_user print
+import is_mingw ask_user print
 
 if is_mingw ; then
 
@@ -26,7 +26,4 @@ if is_mingw ; then
 	  return 1
 	}
 
-else
-	error 'not mingw'
-	return 1
 fi
