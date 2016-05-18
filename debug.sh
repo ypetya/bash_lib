@@ -1,6 +1,9 @@
 #!/bin/bash
 
-DEBUG=${DEBUG:=1}
+import print
+
+export DEBUG=${DEBUG:=1}
+
 function debug() {
-  [[ "$DEBUG" == "1" ]] && echo "-----> $*" 1>&2
+  [[ "$DEBUG" == "1" ]] && print "-----> $*" 1>&2
 }

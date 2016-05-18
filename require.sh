@@ -18,7 +18,7 @@ function init() {
 init
 
 # assume following modules are available for all
-import require_package is_variable debug print error
+import require_package debug print_info
 
 # require all the parameters
 function require() {
@@ -26,19 +26,10 @@ function require() {
 		local param="${param_in%%.sh}"
 		local fn_name="${param#*/}"
 		import "$param"
-		local is_a=$(type -t "$fn_name")
-		print yellow "$fn_name"
-		if [ ! -z "$is_a" ] ; then
-			print ' is a '
-			print green "$is_a\n"
-			#export -f "$fn_name"
-		elif is_variable $fn_name ; then
-			print ' is a '
-			print green "variable\n"
-		else
-			print ' is '
-			print red "missing\n"
-		fi
+		
+		if [ "$#" == "1" ] ; then
+			print_info "$fn_name"
+		fi		
 	done
 }
 

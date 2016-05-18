@@ -10,6 +10,4 @@ import list
 
 things=($(list))
 
-for thing in ${things[@]} ; do
-	require $thing
-done
+require "${things[@]}"
