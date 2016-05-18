@@ -2,7 +2,6 @@
 
 import print git_get_committers_of_file list_get_row
 
-# TODO rename it grep_blame
 function grep_git() {
 	local file_name
 	local last_file_name='-1'
@@ -13,7 +12,6 @@ function grep_git() {
 	# -r recursive
 	# -n containing line numbers
 	grep -irn "$@" | while read match ; do
-	# FIXME : cutting ':' -s
 		file_name="$(echo $match | cut -d ':' -f 1)"
 		change_line="$(echo $match | cut -d ':' -f 2)"
 		matching_line="$(echo $match | cut -d ':' -f 3,4,5)"
