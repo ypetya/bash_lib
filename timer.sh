@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import print
+import print error is_variable
 
 function timer() {
 	TIMER_START="$(date +%s)"
@@ -16,5 +16,9 @@ function timer_on_exit {
 }
 
 function timer_stop() {
-	timer_on_exit
+	if is_variable TIMER_START ; then
+		timer_on_exit
+	else
+		error "Timer should be started!"
+	fi
 }

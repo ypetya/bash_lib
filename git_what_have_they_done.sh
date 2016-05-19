@@ -52,6 +52,6 @@ function git_what_have_they_done() {
 	done | list_counts_desc
 	
 	popd >> /dev/null
-	timer_stop
   fi
+  timer_stop
 }
