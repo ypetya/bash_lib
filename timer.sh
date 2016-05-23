@@ -9,7 +9,8 @@ function timer() {
 
 function timer_on_exit {
 	local END="$(date +%s)"
-	local DIFF="$( expr $END - $TIMER_START )"
+	local DIFF;
+	let DIFF="$END - $TIMER_START"
 	print ' * Done in '
 	print yellow "$DIFF"
 	print " seconds\n"
