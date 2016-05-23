@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import http_get
 # https://www.otpszepkartya.hu/fooldal/
 function get_szepkartya_egyenleg () {
 	local card_num=${1? missing param - please enter last 10 digits of the card}
