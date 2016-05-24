@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# call this with zero, one or two parameters. 
+# call this with zero, one or two parameters.
 # $1 = Artist,
 # $2 = track
 # stores ~/.fav file in format : Artist : Track. example:
@@ -23,6 +23,6 @@ function fav() {
   else
     track=$2
   fi
-  
+
   echo "$artist : $track" >> "$fav_file"
 }

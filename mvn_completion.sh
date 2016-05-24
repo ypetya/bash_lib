@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-mvn_completion()
+function mvn_completion()
 {
   local cur=${COMP_WORDS[COMP_CWORD]}
 #  _get_comp_words_by_ref -n : cur
