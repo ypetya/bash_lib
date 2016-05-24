@@ -17,12 +17,12 @@ function reject() {
 		debug $key
 		val=${my_arr[$key]}
 		debug $val
-		
+
 		if ( eval "${2? param missing - callback} $key $val" ) ; then
 			my_arr[$key]=''
 		fi
 	done
-	
+
 	# compact
 	eval "${1}=( ${my_arr[@]} )"
 }

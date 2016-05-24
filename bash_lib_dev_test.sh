@@ -29,11 +29,13 @@ function bash_lib_dev_test() {
 		# TODO 3. no trailing spaces
 		if file_contains "\s$" $file ; then
 			is_error=1
-			print yellow "$file contains trailing space:\n"
-			sed -nr "/\s$/p" $file
+			print yellow "$file contains trailing space:"
+			# sed -nr "/[[:space:]]$/p" $file
+			sed -i -r "s/[[:space:]]+$//" $file
+			print green "fixing.\n"
 		fi
 	done
-	
+
 	if [ "$is_error" == "0" ] ; then
 		print green "All is green.\n"
 	fi

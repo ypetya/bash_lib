@@ -7,15 +7,15 @@ import ask_user
 function setup_proxy_manual() {
 	local host="$1"
 	local PROXY_PORT="$2"
-	
+
 	local password
 	echo "Please enter password for user $USER :"
 	read -rs password
-	
+
 	if [ -z "$host" ] ; then
 		ask_user "Please enter proxy host :" host
 	fi
-	
+
 	if [ -z "$PROXY_PORT" ] ; then
 		ask_user "Please enter proxy port :" PROXY_PORT
 	fi

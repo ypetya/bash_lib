@@ -11,7 +11,7 @@ function git_drop_remote_branches() {
 	for branch in ${REMOTE_BRANCHES[*]} ; do
 	  case $branch in
 		master|dev)
-		  echo "$branch - not deleting" 
+		  echo "$branch - not deleting"
 		  ;;
 		*)
 		  echo "$branch - deleting"

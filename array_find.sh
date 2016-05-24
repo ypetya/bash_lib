@@ -6,8 +6,8 @@ function array_find() {
 	local pattern=${1? param missing - pattern }
 	local out_arr=${2? param missing - array name}[@]
 	local arr=("${!out_arr}")
-	
-	for item in ${arr[@]} ; do 
+
+	for item in ${arr[@]} ; do
 		if [[ "$item" =~ "$pattern" ]] ; then
 			print "$item\n"
 		fi

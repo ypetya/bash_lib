@@ -5,6 +5,6 @@ function get_source_dir() {
 	if [[ ! -d "$_bash_source_DIR" ]]; then
 		_bash_source_DIR="$PWD"
 	fi
-	
+
 	export ${1? param missing : please define output var name}="$_bash_source_DIR"
 }

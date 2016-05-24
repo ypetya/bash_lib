@@ -18,7 +18,7 @@ function grep_git() {
 		if [ ! "$file_name" == "$last_file_name" ] ; then
 			committers=( $(git_get_committers_of_file "$file_name") )
 		fi
-		
+
 		last_file_name="$file_name"
 		print yellow "$file_name"
 		print ":$change_line "

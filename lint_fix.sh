@@ -6,7 +6,7 @@ import is_file timer
 
 function lint_fix () {
 	timer
-	if ! is_file package.json ; then 
+	if ! is_file package.json ; then
 		error 'There is no package.json in this directory!'
 		return 1
 	else

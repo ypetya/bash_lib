@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import timer 
+import timer
 import git_log_stat
 import create_map
 import debug
@@ -28,53 +28,53 @@ function git_stat_change_counts() {
 			return 1
 		fi
 	fi
-	
+
 	timer
 	local file
 	local risk
 	declare -i risk
 	local count
 	declare -i count
-	
+
 	create_map change_count
 	create_map lines_add
 	create_map lines_remove
-	
+
 	while read -r line ; do
 		#debug yellow "$line"
 		file="$( echo $line | cut -d ' ' -f 3 )"
-		
+
 		# count file changed
-		count=${change_count[$file]} 
-		if [ -z $count ] ; then 
+		count=${change_count[$file]}
+		if [ -z $count ] ; then
 			count=0
 		fi
-		
+
 		count+=1
-				
+
 		change_count[$file]=$count
 
 		# sum lines_add
-		count=${lines_add[$file]} 
-		if [ -z $count ] ; then 
+		count=${lines_add[$file]}
+		if [ -z $count ] ; then
 			count=0
 		fi
-		
+
 		count+=$( echo $line | cut -d ' ' -f 1)
-				
+
 		lines_add[$file]=$count
-		
+
 		# sum lines_remove
-		count=${lines_remove[$file]} 
-		if [ -z $count ] ; then 
+		count=${lines_remove[$file]}
+		if [ -z $count ] ; then
 			count=0
 		fi
-		
+
 		count+=$( echo $line | cut -d ' ' -f 2)
-		
+
 		lines_remove[$file]=$count
 	# this will print only the matchig lines, where:
-	# <added_lines_number> <remove_lines_number> <file_name>		
+	# <added_lines_number> <remove_lines_number> <file_name>
 	done <<EOT
 	$( git_log_stat "$@" | \
 	sed -rn 's/^([0-9]+)\s+([0-9]+)\s+(.*)$/\1 \2 \3/p' )
@@ -94,6 +94,6 @@ EOT
 			print " $file\n"
 		fi
 	done | sort -t " " -k 1 -g -r
-	
+
 	timer_stop
 }

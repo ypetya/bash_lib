@@ -14,15 +14,15 @@ if is_mingw ; then
 		echo "$COMMAND"
 		if [ -d $3 ] ; then
 		  print yellow "Destenation directory already exists! command may fail!"
-		fi 
+		fi
 		if ask_user 'Continue?' ; then
 			$COMMAND
 			return $?
-		fi      
+		fi
 	  else
 		print "Only -s option is supported"
 	  fi
-	  
+
 	  return 1
 	}
 

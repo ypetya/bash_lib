@@ -14,6 +14,6 @@ function print() {
 			return
 		fi
 	fi
-	
+
 	printf "$@" 2> /dev/null
 }

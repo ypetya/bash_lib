@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if require_package xclip git ; then
-	
+
 	# adds a new remote, git url is grabbed from clipboard
 	function git_remote_add_from_clipboard() {
 	  local remote
@@ -11,6 +11,6 @@ if require_package xclip git ; then
 	  fi
 	  GIT_REPO=$(xclip -sel clip -o)
 	  git remote add $remote ${GIT_REPO#git clone } $DIR
-	}  
+	}
 fi
 

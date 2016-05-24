@@ -9,11 +9,11 @@ function rename_files() {
 		print " -> "
 		print green "${f//$change_from/$change_to}\n"
 	done
-		
+
 	if ask_user 'Is this correct?' ; then
-		for f in $( find . ) ; do 
+		for f in $( find . ) ; do
 			mv -v "$f" "${f//$change_from/$change_to}"
 		done
 	fi
-	
+
 }
