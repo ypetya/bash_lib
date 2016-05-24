@@ -2,6 +2,7 @@
 
 import get_source_dir
 import file_contains
+import sed_fix_trailing_spaces
 
 # This helper is about to ensure rules in this library
 function bash_lib_dev_test() {
@@ -31,7 +32,7 @@ function bash_lib_dev_test() {
 			is_error=1
 			print yellow "$file contains trailing space:"
 			# sed -nr "/[[:space:]]$/p" $file
-			sed -i -r "s/[[:space:]]+$//" $file
+			sed_fix_trailing_spaces $file
 			print green "fixing.\n"
 		fi
 	done
