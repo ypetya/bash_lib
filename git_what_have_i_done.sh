@@ -14,7 +14,8 @@ function git_what_have_i_done() {
   # Author vs committer :
   # in large repositories committer is the one who applies changes
   # of an author
-  git log --pretty=format:"%Cred%h%Creset;%Cgreen%ad%Creset;%aE;%s" --branches --date=relative | \
+  git log --pretty=format:"%Cred%h%Creset;%Cgreen%ad%Creset;%aE;%s" \
+	--branches --date=relative | \
   grep "$check" | \
   cut --delimiter=";" -f1,2,4 | \
   first 20

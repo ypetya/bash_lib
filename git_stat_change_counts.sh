@@ -24,7 +24,9 @@ import ask_user
 # it would be great to pass in sorting strategy filter
 function git_stat_change_counts() {
 	if [[ $# == 0 ]] ; then
-		if ! ask_user "Are you sure collecting stat without limits? (Eg.: --since=2.weeks)" ; then
+		if ! ask_user "Are you sure collecting stat without limits?\
+ (Eg.: --since=2.weeks)"
+		then
 			return 1
 		fi
 	fi
@@ -80,7 +82,8 @@ function git_stat_change_counts() {
 	sed -rn 's/^([0-9]+)\s+([0-9]+)\s+(.*)$/\1 \2 \3/p' )
 EOT
 	debug red "${#change_count[@]} files:"
-	print yellow "RISK(change x length) length# change# lines_add lines_remove file\n"
+	print yellow "RISK(change x length) \
+length# change# lines_add lines_remove file\n"
 	# print results
 	for file in ${!change_count[@]} ; do
 		if is_file $file ; then

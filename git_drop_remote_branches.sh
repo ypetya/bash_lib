@@ -2,19 +2,23 @@
 
 function git_drop_remote_branches() {
 	FORCE="$1"
-	REMOTE_BRANCHES=$(git remote show origin | grep 'tracked' | sed 's/tracked//g' | tr -d ' ')
+	REMOTE_BRANCHES=$(git remote show origin | \
+	 grep 'tracked' | \
+	 sed 's/tracked//g' | \
+	 tr -d ' ')
 
 	if [ "$FORCE" = "" ] ; then
-	  echo "add a parameter to force deleting - else it will run bulk only"
+	  print "add a parameter to force deleting -"
+	  print " otherwise it will run bulk only\n"
 	fi
 
 	for branch in ${REMOTE_BRANCHES[*]} ; do
 	  case $branch in
 		master|dev)
-		  echo "$branch - not deleting"
+		  print green "$branch - not deleting\n"
 		  ;;
 		*)
-		  echo "$branch - deleting"
+		  print red "$branch - deleting\n"
 		  if [ "$FORCE" != "" ] ; then
 			git push origin :$branch
 		  fi

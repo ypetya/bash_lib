@@ -2,17 +2,21 @@
 #set -x
 
 # Shows you the largest objects in your repo's pack file.
-# @see http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
+# @see http://stubbisms.wordpress.com/2009/07/10/\
+git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
 # @author Antony Stubbs
 
 function git_find_large_files() {
-	# set the internal field spereator to line break, so that we can iterate easily over the verify-pack output
+	# set the internal field spereator to line break, so that we can
+	# iterate easily over the verify-pack output
 	IFS=$'\n';
 
 	# list all objects including their size, sort by size, take top 10
-	objects=`git verify-pack -v .git/objects/pack/pack-*.idx | grep -v chain | sort -k3nr | head`
+	objects=`git verify-pack -v .git/objects/pack/pack-*.idx | \
+		grep -v chain | sort -k3nr | head`
 
-	echo "All sizes are in kB's. The pack column is the size of the object, compressed, inside the pack file."
+	echo "All sizes are in kB's. The pack column is the size of the object,\
+ compressed, inside the pack file."
 
 	output="size,pack,SHA,location"
 	for y in $objects
@@ -34,9 +38,14 @@ function git_find_large_files() {
 }
 
 # To remove a directory use this command:
-#git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch -r <directory>' --prune-empty --tag-name-filter cat -- --all
+#git filter-branch --force --index-filter 'git rm --cached \
+--ignore-unmatch -r <directory>' --prune-empty --tag-name-filter cat -- --all
 # To remove a file use this command :
-#git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch <file>' --prune-empty --tag-name-filter cat -- --all
+#git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch <file>' --prune-empty \
+--tag-name-filter cat -- --all
 
-# After remove you need to purge the objects from your repo. The easiest way is to clone your repo to an other.
-#rm -rf .git/refs/original/ && git reflog expire --all &&  git gc --aggressive --prune
+# After remove you need to purge the objects from your repo. The easiest
+# way is to clone your repo to an other.
+#rm -rf .git/refs/original/ && git reflog expire --all && \
+ git gc --aggressive --prune

@@ -17,7 +17,7 @@ function lint_fix () {
 			if grunt eslint:dev ; then
 				print green " * ok\n"
 			else
-				error " * there is still an error, which can not have been resolved.\n"
+				error " * there is still an error, could not resolve.\n"
 				timer_stop
 				return 1
 			fi

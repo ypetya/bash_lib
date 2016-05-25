@@ -32,6 +32,7 @@ function setup_proxy_manual() {
 	  export http_proxy="$PROXY_SERVER:$PROXY_PORT"
 	  export https_proxy="$PROXY_SERVER:$PROXY_PORT"
 	  # java
-	  export JAVA_OPTS="-Dhttp.proxyHost=$PROXY_SERVER -Dhttp.proxyPort=$PROXY_PORT"
+	  export JAVA_OPTS="-Dhttp.proxyHost=$PROXY_SERVER \
+		-Dhttp.proxyPort=$PROXY_PORT"
 	fi
 }

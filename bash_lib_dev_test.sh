@@ -11,6 +11,7 @@ function bash_lib_dev_test() {
 	local fn_name
 	local line_width
 	local is_error=0
+	local width_limit=80
 	# 1. ensure files have the same name function or export!
 	for file in $( find . -maxdepth 1 -iname '*.sh' ) ; do
 		fn_name="function ${file%%*.sh}"
@@ -22,16 +23,21 @@ function bash_lib_dev_test() {
 			fi
 		fi
 		# 2. no wide lines
-		line_width=$(wc -L $file | cut -d ' ' -f 1)
-		if (( $line_width > 80 )) ; then
-			print yellow "$file is too wide, more than 80 chars! : $line_width\n"
+		# - corrects tab to 4 spaces
+		line_width=$(
+			sed -r 's/\t/    /g' "$file" | wc -L | cut -d ' ' -f 1 )
+		if (( $line_width > $width_limit )) ; then
+			print yellow "$file"
+			print " is too wide, more than "
+			print yellow "$width_limit"
+			print " chars! Actual max_length: "
+			print red "$line_width\n"
 			is_error=1
 		fi
 		# TODO 3. no trailing spaces
 		if file_contains "\s$" $file ; then
 			is_error=1
 			print yellow "$file contains trailing space:"
-			# sed -nr "/[[:space:]]$/p" $file
 			sed_fix_trailing_spaces $file
 			print green "fixing.\n"
 		fi
