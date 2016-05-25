@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# TODO : next Steps:
+# TODO : 1. should use packages as function names can contain dot character
+
+import first
 import get_source_dir
 import file_contains
 import sed_fix_trailing_spaces
@@ -34,14 +38,23 @@ function bash_lib_dev_test() {
 			print red "$line_width\n"
 			is_error=1
 		fi
-		# TODO 3. no trailing spaces
+		# 3. no trailing spaces
 		if file_contains "\s$" $file ; then
-			is_error=1
 			print yellow "$file contains trailing space:"
 			sed_fix_trailing_spaces $file
 			print green "fixing.\n"
 		fi
+		# 4. first line is shebang
+		fn_name="$( first 1 $file )"
+		if [ ! "$fn_name" == '#!/bin/bash' ] ; then
+			debug "first line : $fn_name"
+			error "hashbang not valid in $file!"
+			is_error=1
+		fi
 	done
+	# 5. print out notes
+	grep -rnE 'FIXME|TODO' "$dir" --exclude="bash_lib_dev_test.sh" \
+		--exclude="./git/*"
 
 	if [ "$is_error" == "0" ] ; then
 		print green "All is green.\n"
