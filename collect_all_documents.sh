@@ -1,6 +1,7 @@
 #!/bin/bash
 
 import is_directory
+import find_blacklist
 
 function collect_all_documents() {
 	local root_dir=${1? param missing - root_dir}
@@ -12,11 +13,7 @@ function collect_all_documents() {
 		-o -iname \*.mobi \
 		-o -iname \*.doc \
 		-o -iname \*.pdf \)\
-		  -not \( \
-		  -path  '*/.git/*' \
-		  -o -path '*/.m2/*' \
-		  -o -path '*/caches/*' \
-		  -o -path '*/.svn/*' \) \
+		$find_blacklist \
 		   2>/dev/null
 		))
 
