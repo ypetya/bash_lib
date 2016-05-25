@@ -20,8 +20,7 @@ import ask_user
 # =============
 # require git_stat_change_counts ; git_stat_change_counts --since=2.weeks
 #
-# TODO:
-# it would be great to pass in sorting strategy filter
+# TODO: it would be great to pass in sorting strategy filter
 function git_stat_change_counts() {
 	if [[ $# == 0 ]] ; then
 		if ! ask_user "Are you sure collecting stat without limits?\

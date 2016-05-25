@@ -3,7 +3,6 @@
 import is_linux ask_user
 
 :${AUTO_INSTALL:0}
-# TODO add install instructions for mingw
 function install_package() {
 	if is_linux && [ "$AUTO_INSTALL" == "1" ]; then
 		local prog="${1? param missing - please specify package name}"

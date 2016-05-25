@@ -11,8 +11,8 @@
 # $ echo $USERDOMAIN
 # $ echo $USERDNSDOMAIN
 # $ systeminfo
-# http://superuser.com/\
-questions/346372/how-do-i-know-what-proxy-server-im-using
+# http://superuser.com
+# /questions/346372/how-do-i-know-what-proxy-server-im-using
 import ask_user http_get
 function find_proxies() {
   local a_proxy_url

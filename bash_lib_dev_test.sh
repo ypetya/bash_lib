@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# TODO : next Steps:
-# TODO : 1. should use packages as function names can contain dot character
+# TODO : next Steps in development
+# 1. should use packages as function names can contain dot character
+# 2. method for find unnecessary imports - ES6
+# 3. find duplicated imports - ES6
 
 import first
 import get_source_dir
@@ -18,10 +20,15 @@ function bash_lib_dev_test() {
 	local width_limit=80
 	# 1. ensure files have the same name function or export!
 	for file in $( find . -maxdepth 1 -iname '*.sh' ) ; do
-		fn_name="function ${file%%*.sh}"
+		file="${file#./*}"
+		fn_name="function ${file%*.sh}"
+		debug "* file_contains \"$fn_name\" $file"
 		if ! file_contains "$fn_name" "$file" ; then
-			fn_name="export ${file%%*.sh}"
+			debug ' * no'
+			fn_name="export ${file%*.sh}"
+			debug "* file_contains $fn_name $file"
 			if ! file_contains "$fn_name" "$file" ; then
+				debug ' * no'
 				error "$file does not have $fn_name"
 				is_error=1
 			fi

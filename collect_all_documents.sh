@@ -8,7 +8,7 @@ function collect_all_documents() {
 	if is_directory "$root_dir" ; then
 
 	  files=( $(
-		find $root_dir -type f \
+		eval find $root_dir -type f \
 		\( -iname \*.docx \
 		-o -iname \*.mobi \
 		-o -iname \*.doc \
