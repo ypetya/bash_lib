@@ -2,6 +2,7 @@
 
 import create_colors_map
 
+create_colors_map
 # first parameter is optional, and it tries to get a color code for it
 # print yellow 'sunshine\n'
 # when a pipe is broken it wont print error messages

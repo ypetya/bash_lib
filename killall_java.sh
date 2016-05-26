@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import require_package
+
 if require_package jps taskkill ; then
 	function killall_java() {
 	  unset PIDS

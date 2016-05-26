@@ -17,8 +17,7 @@ function init() {
 }
 init
 
-# assume following modules are available for all
-import require_package debug print_info
+import print_info
 
 # require all the parameters
 function require() {

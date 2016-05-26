@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import require_package
+
 if require_package dpkg ; then
 
 function is_installed() {

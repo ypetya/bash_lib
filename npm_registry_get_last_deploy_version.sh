@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import require_package
 import npm_get_artifact_name first
 
 function npm_registry_get_last_deploy_version() {

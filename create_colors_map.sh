@@ -10,5 +10,3 @@ function create_colors_map() {
 	colors[green]=32
 	colors[yellow]=33
 }
-
-create_colors_map

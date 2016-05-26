@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import require_package
+
 if require_package xclip git ; then
 
 	# adds a new remote, git url is grabbed from clipboard

@@ -2,13 +2,13 @@
 
 # TODO : next Steps in development
 # 1. should use packages as function names can contain dot character
-# 2. method for find unnecessary imports - ES6
-# 3. find duplicated imports - ES6
 
 import first
 import get_source_dir
 import file_contains
 import sed_fix_trailing_spaces
+import find_duplicate_imports
+import find_unused_imports
 
 # This helper is about to ensure rules in this library
 function bash_lib_dev_test() {
@@ -59,7 +59,9 @@ function bash_lib_dev_test() {
 			is_error=1
 		fi
 	done
-	# 5. print out notes
+	find_duplicate_imports
+	find_unused_imports
+	# print out notes
 	grep -rnE 'FIXME|TODO' "$dir" --exclude="bash_lib_dev_test.sh" \
 		--exclude="./git/*"
 

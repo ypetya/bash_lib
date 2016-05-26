@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import require_package
 require_package npm grunt
 
 import is_file timer

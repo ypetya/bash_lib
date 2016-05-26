@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import error
+import require_package
 
 if require_package npm ; then
 
