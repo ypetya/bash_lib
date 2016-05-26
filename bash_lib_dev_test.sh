@@ -4,14 +4,17 @@
 # 1. should use packages as function names can contain dot character
 
 import first
+import timer
 import get_source_dir
 import file_contains
 import sed_fix_trailing_spaces
 import find_duplicate_imports
 import find_unused_imports
+import git_get_committer_email
 
 # This helper is about to ensure rules in this library
 function bash_lib_dev_test() {
+	timer
 	local dir
 	get_source_dir dir
 	local fn_name
@@ -67,5 +70,8 @@ function bash_lib_dev_test() {
 
 	if [ "$is_error" == "0" ] ; then
 		print green "All is green.\n"
+		print "Committer email : "
+		print yellow "$(git_get_committer_email)\n"
 	fi
+	timer_stop
 }
