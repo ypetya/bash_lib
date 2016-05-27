@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import is_variable
+import -f is_variable
 
 function is_defined() {
 	local thing="${1?param missing - name}"

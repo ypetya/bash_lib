@@ -1,7 +1,5 @@
 #!/bin/bash
 
-import debug
-import is_defined
 # this function can source a *.sh relative to the directory of own
 # it will skip loaded packages
 # you can force to load anyway, by passing -f as the first parameter
@@ -13,9 +11,18 @@ function import() {
 	fi
 	get_source_dir "DIR"
 	for dependency in $@ ; do
-		if ! is_defined "$dependency" || [[ "$force" == "1" ]]; then
+		if [[ "$force" == "1" ]] || ! is_defined "$dependency" ; then
 			debug "sourceing : $DIR/$dependency.sh"
 			source "$DIR/$dependency.sh"
 		fi
 	done
 }
+
+
+function debug() {
+  [[ "$DEBUG" == "1" ]] && echo "$@" 1>&2
+}
+
+import -f is_defined
+import -f debug
+

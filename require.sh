@@ -27,7 +27,6 @@ function require() {
 		local param="${param_in%%.sh}"
 		local fn_name="${param#*/}"
 		import -f "$param"
-
 		if [ "$#" == "1" ] ; then
 			print_info "$fn_name"
 		fi
