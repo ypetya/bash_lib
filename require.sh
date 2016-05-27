@@ -6,7 +6,7 @@
 #
 # $ require fav killall_java git_helpers
 
-DEBUG=0
+DEBUG=${DEBUG:-0}
 
 # require import - which can be used by any local script
 function init() {
@@ -20,11 +20,13 @@ init
 import print_info
 
 # require all the parameters
+# give back some human readable info on requiring a single dependency
+# require will force import to reload (source) the code from disk
 function require() {
 	for param_in in "$@" ; do
 		local param="${param_in%%.sh}"
 		local fn_name="${param#*/}"
-		import "$param"
+		import -f "$param"
 
 		if [ "$#" == "1" ] ; then
 			print_info "$fn_name"
