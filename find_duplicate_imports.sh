@@ -12,7 +12,7 @@ function find_duplicate_imports() {
 		top_import=$(list_imports_of_file $file | list_counts_desc | first )
 		debug "$file:$top_import"
 		count=$( echo $top_import | cut -d ' ' -f 1)
-		debug "$count"
+		debug "top import count : $count"
 		if (( $count > 1 )) ; then
 			print "$file has "
 			print red "$top_import\n"

@@ -13,7 +13,7 @@ import find_blacklist
 function for_each_file() {
 	local callback="${1?param missing - callback}"
 	local files=( $( eval find . -type f $find_blacklist ) )
-	
+
 	for file in ${files[@]} ; do
 		debug "$callback $file"
 		$callback "$file"
