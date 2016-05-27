@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import print
+import string_match_regex
 # TODO this find should be improved by changing the if with a callback
 # like in reject
 function array_find() {
@@ -8,7 +10,7 @@ function array_find() {
 	local arr=("${!out_arr}")
 
 	for item in ${arr[@]} ; do
-		if [[ "$item" =~ "$pattern" ]] ; then
+		if string_match_regex "$item" "$pattern" ; then
 			print "$item\n"
 		fi
 	done
