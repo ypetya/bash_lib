@@ -1,20 +1,17 @@
-Goal and contribution
-=====================
+Goals
+=====
 
-Introduce very simple standalone bash script modules for highly 
-reusable solutions.
-The dependency framework is something similar to javascript's.
-
-Be aware of applying
-
- * clean code principles
- * be SOLID
+* Introduce a very easy to use utility belt for scripting.
+* Construct a highly reusable module oriented framework.
+* Automatize everything.
+* Try to use programming principles: clean code and SOLID
+* Introduce some high level scripting technics for bash: callbacks, IoC
 
 Howto
 =====
 
-Use the whole library
----------------------
+Use the library
+---------------
 
 in your home directory
 
@@ -37,13 +34,46 @@ Than you can source any other scripts via the require command
 
 `$ require require_completion is_linux git_helpers git_what_have_i_done killall_java`
 
+Write scripts on my own
+-----------------------
+
+The library contains an own Require / Import mechanism.
+`require` is the human friendly tool to import a module into the scope.
+when you pass one argument, it will print out the imported object type,
+with `print_info` . A module can be either a variable or a function.
+Each file contains exactly one module. `require` always loads the module
+from the disk. The tool `import` makes the same for a script. It has a 
+lazy load implementation. Passing the parameter `-f` as the first, can force
+the import. When you write a script, use `import`. Both `require` and
+`import` can resolve multiple parameter inputs.
+Each module should have a basic description in the file.
+
+Update my copy to the latest version
+------------------------------------
+
+Run
+```
+$ bash_lib_update
+```
+
+Check my code quality
+---------------------
+
+Run
+```
+$ bash_lib_dev_test
+```
 
 Tips
 ====
 
-try to use variable DEBUG=1
+try to set variable `DEBUG=1` to get more information
 
-external:
+Links
+=====
+
+External
+--------
 
 * Checks : http://www.shellcheck.net/
 * Colors and formatting : http://misc.flogisoft.com/bash/tip_colors_and_formatting
