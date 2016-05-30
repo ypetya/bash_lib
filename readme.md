@@ -13,15 +13,12 @@ Howto
 Use the library
 ---------------
 
-in your home directory
+Clone and source it:
 
-1. Step : clone the repository
-
-`git clone https://kisp@bitbucket.org/kisp/bash_lib.git`
-
-2. Step : source the `.source` file from your `.bashrc`
-
-`echo "source ~/bash_lib/.source" >> .bashrc`
+```
+git clone https://kisp@bitbucket.org/kisp/bash_lib.git
+echo "source ~/bash_lib/.source" >> .bashrc
+```
 
 That's it.
 
