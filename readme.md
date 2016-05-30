@@ -22,17 +22,15 @@ echo "source ~/bash_lib/.source" >> .bashrc
 
 That's it.
 
-Try things standalone
----------------------
+Reload module
+-------------
 
-`$ source <path..>/require.sh`
+```
+require require_completion
+```
 
-Than you can source any other scripts via the require command
-
-`$ require require_completion is_linux git_helpers git_what_have_i_done killall_java`
-
-Write scripts on my own
------------------------
+Write scripts
+-------------
 
 The library contains an own Require / Import mechanism.
 `require` is the human friendly tool to import a module into the scope.
