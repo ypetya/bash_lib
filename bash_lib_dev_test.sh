@@ -39,7 +39,8 @@ function bash_lib_dev_test() {
 		# 2. no wide lines
 		# - corrects tab to 4 spaces
 		line_width=$(
-			sed -r 's/\t/    /g' "$file" | wc -L | cut -d ' ' -f 1 )
+			sed -r 's/\t/    /g;s/http.*//g' "$file" | \
+			wc -L | cut -d ' ' -f 1 )
 		if (( $line_width > $width_limit )) ; then
 			print yellow "$file"
 			print " is too wide, more than "
