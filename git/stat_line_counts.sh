@@ -2,7 +2,7 @@
 
 import timer
 
-function git_stat_line_counts() {
+function git.stat_line_counts() {
 	timer
 	# sort options:
 	# -t separator

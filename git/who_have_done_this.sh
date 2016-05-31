@@ -2,7 +2,7 @@
 
 import grep_git list_counts_desc timer
 
-function git_who_have_done_this() {
+function git.who_have_done_this() {
 	timer
 	grep_git $@ | cut -d ' ' -f 2 | list_counts_desc
 	timer_stop

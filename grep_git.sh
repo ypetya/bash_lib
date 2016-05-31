@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import print git_get_committers_of_file
+import print git.get_committers_of_file
 
 function grep_git() {
 	local file_name
@@ -16,7 +16,7 @@ function grep_git() {
 		change_line="$(echo $match | cut -d ':' -f 2)"
 		matching_line="$(echo $match | cut -d ':' -f 3,4,5)"
 		if [ ! "$file_name" == "$last_file_name" ] ; then
-			committers=( $(git_get_committers_of_file "$file_name") )
+			committers=( $(git.get_committers_of_file "$file_name") )
 		fi
 
 		last_file_name="$file_name"

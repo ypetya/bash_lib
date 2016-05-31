@@ -1,7 +1,7 @@
 #!/bin/bash
 
 import timer
-import git_log_stat
+import git.log_stat
 import create_map
 import debug
 import is_file
@@ -18,10 +18,10 @@ import ask_user
 #
 # Example usage
 # =============
-# require git_stat_change_counts ; git_stat_change_counts --since=2.weeks
+# require git.stat_change_counts ; git.stat_change_counts --since=2.weeks
 #
 # TODO: it would be great to pass in sorting strategy filter
-function git_stat_change_counts() {
+function git.stat_change_counts() {
 	if [[ $# == 0 ]] ; then
 		if ! ask_user "Are you sure collecting stat without limits?\
  (Eg.: --since=2.weeks)"
@@ -77,7 +77,7 @@ function git_stat_change_counts() {
 	# this will print only the matchig lines, where:
 	# <added_lines_number> <remove_lines_number> <file_name>
 	done <<EOT
-	$( git_log_stat "$@" | \
+	$( git.log_stat "$@" | \
 	sed -rn 's/^([0-9]+)\s+([0-9]+)\s+(.*)$/\1 \2 \3/p' )
 EOT
 	debug red "${#change_count[@]} files:"

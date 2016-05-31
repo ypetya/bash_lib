@@ -4,7 +4,7 @@
 # every script can individually source by using the require function
 # or loading this lib first
 # E.g:
-# $ require fav killall_java git_helpers
+# $ require fav killall_java
 
 DEBUG=${DEBUG:-0}
 

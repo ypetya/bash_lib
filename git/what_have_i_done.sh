@@ -2,7 +2,7 @@
 
 import first
 
-function git_what_have_i_done() {
+function git.what_have_i_done() {
   local check="${GIT_COMMITTER_EMAIL? variable missing}"
   # Git help log
   # ------------

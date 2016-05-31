@@ -1,10 +1,10 @@
 #!/bin/bash
 
-import git_changed
+import git.changed
 
 function pull() {
   if [[ $# == 0 ]] ; then
-	if git_changed ; then
+	if git.changed ; then
 		git stash
 		git pull
 		git stash pop

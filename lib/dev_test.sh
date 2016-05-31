@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO : next Steps in development
-# 1. should use packages as function names can contain dot character
-
 import first
 import timer
 import get_source_dir
@@ -10,25 +7,28 @@ import file_contains
 import sed_fix_trailing_spaces
 import find_duplicate_imports
 import find_unused_imports
-import git_get_committer_email
+import git.get_committer_email
+import convert_filename_to_package
 
 # This helper is about to ensure rules in this library
-function bash_lib_dev_test() {
+function lib.dev_test() {
 	timer
 	local dir
 	get_source_dir dir
 	local fn_name
+	local module_name
 	local line_width
 	local is_error=0
 	local width_limit=80
 	# 1. ensure files have the same name function or export!
-	for file in $( find . -maxdepth 1 -iname '*.sh' ) ; do
+	for file in $( find . -iname '*.sh' ) ; do
 		file="${file#./*}"
-		fn_name="function ${file%*.sh}"
+		module_name="$(convert_filename_to_package . $file)"
+		fn_name="function $module_name"
 		debug "* file_contains \"$fn_name\" $file"
 		if ! file_contains "$fn_name" "$file" ; then
 			debug ' * no'
-			fn_name="export ${file%*.sh}"
+			fn_name="export $module_name"
 			debug "* file_contains $fn_name $file"
 			if ! file_contains "$fn_name" "$file" ; then
 				debug ' * no'
@@ -72,7 +72,7 @@ function bash_lib_dev_test() {
 	if [ "$is_error" == "0" ] ; then
 		print green "All is green.\n"
 		print "Committer email : "
-		print yellow "$(git_get_committer_email)\n"
+		print yellow "$(git.get_committer_email)\n"
 	fi
 	timer_stop
 }

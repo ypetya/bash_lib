@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function git_drop_remote_branches() {
+function git.drop_remote_branches() {
 	FORCE="$1"
 	REMOTE_BRANCHES=$(git remote show origin | \
 	 grep 'tracked' | \

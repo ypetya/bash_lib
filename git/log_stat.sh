@@ -1,5 +1,5 @@
 #!/bin/bash
 
-function git_log_stat() {
+function git.log_stat() {
 	git log --numstat --no-merges -w "$@"
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function git_check_remote_updated() {
+function git.check_remote_updated() {
 	local remote_url="${1? param missing - remote_url}"
 
 	local remote_sha1="$(git ls-remote "$remote_url" | grep HEAD | cut -f 1)"

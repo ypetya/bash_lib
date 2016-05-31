@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This function will change the commiter data on a repository
-function git_change_commiter() {
+function git.change_commiter() {
   read -rp "Old email to change? " OLD_EMAIL
   export OLD_EMAIL
   read -rp "New commiter and author name? " NEW_NAME

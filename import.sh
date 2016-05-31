@@ -4,7 +4,7 @@
 function init() {
 	local DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-	
+
 	for f in get_source_dir convert_package_to_filename ; do
 		source "$DIR/$f.sh"
 	done

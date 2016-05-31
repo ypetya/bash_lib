@@ -2,22 +2,22 @@
 
 import is_directory is_text_file list_counts_desc
 import print error
-import git_changed
+import git.changed
 import timer
-import git_get_committers_of_file
+import git.get_committers_of_file
 
 # returns a statistic on commited lines
 # param $1 can be a file or directory, or leave it empty to work on the
 # entire subdir
-function git_what_have_they_done() {
-  if git_changed ; then
+function git.what_have_they_done() {
+  if git.changed ; then
 	error 'Please commit your changes'
 	return 1
   fi
   timer
   local target="${1}"
   if is_file_in_git "$target" ; then
-	git_get_committers_of_file "$target" | list_counts_desc
+	git.get_committers_of_file "$target" | list_counts_desc
   else
 	local committers=()
 	local files=()
@@ -36,7 +36,7 @@ function git_what_have_they_done() {
 
 	for file in ${files[@]} ; do
 		if is_text_file "$file" ; then
-			committers=( $(git_get_committers_of_file $file) ${committers[@]} )
+			committers=( $(git.get_committers_of_file $file) ${committers[@]} )
 			processed_files+=1
 		fi
 	done

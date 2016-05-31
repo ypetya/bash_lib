@@ -6,7 +6,7 @@
 # git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
 # @author Antony Stubbs
 
-function git_find_large_files() {
+function git.find_large_files() {
 	# set the internal field spereator to line break, so that we can
 	# iterate easily over the verify-pack output
 	IFS=$'\n';
