@@ -7,6 +7,7 @@ import is_file timer
 
 function lint_fix () {
 	timer
+	# TODO should walk-up dir to find the next package.json
 	if ! is_file package.json ; then
 		error 'There is no package.json in this directory!'
 		return 1

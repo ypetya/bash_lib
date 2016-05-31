@@ -2,7 +2,7 @@
 
 import get_file_type
 import print debug
-import string_match_regex
+import string.match_regex
 # list files containing specific strings in file-type
 # recursing from the current dir
 function find_files_by_type() {
@@ -14,7 +14,7 @@ function find_files_by_type() {
 	for file in $files ; do
 		file_type="$(get_file_type $file)"
 		debug "$file : $file_type"
-		if string_match_regex "$file_type" "$look_for" ; then
+		if string.match_regex "$file_type" "$look_for" ; then
 			print "$file"
 			print " : "
 			print yellow "$file_type\n"

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-function to_upper() {
+function string.to_upper() {
 	tr '[:lower:]' '[:upper:]'
 }
