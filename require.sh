@@ -3,7 +3,7 @@
 # This file is the initial entry point of the bash_lib
 # every script can individually source by using the require function
 # or loading this lib first
-#
+# E.g:
 # $ require fav killall_java git_helpers
 
 DEBUG=${DEBUG:-0}
@@ -12,23 +12,20 @@ DEBUG=${DEBUG:-0}
 function init() {
 	local DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
-	source "$DIR/get_source_dir.sh"
 	source "$DIR/import.sh"
 }
 init
 
-import print_info
+import -f print_info
 
 # require all the parameters
 # give back some human readable info on requiring a single dependency
 # require will force import to reload (source) the code from disk
 function require() {
-	for param_in in "$@" ; do
-		local param="${param_in%%.sh}"
-		local fn_name="${param#*/}"
-		import -f "$param"
+	for dep in "$@" ; do
+		import -f "$dep"
 		if [ "$#" == "1" ] ; then
-			print_info "$fn_name"
+			print_info "$dep"
 		fi
 	done
 }

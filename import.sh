@@ -1,28 +1,35 @@
 #!/bin/bash
 
+# require import - which can be used by any local script
+function init() {
+	local DIR="${BASH_SOURCE%/*}"
+	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
+	
+	for f in get_source_dir convert_package_to_filename ; do
+		source "$DIR/$f.sh"
+	done
+}
+
 # this function can source a *.sh relative to the directory of own
 # it will skip loaded packages
 # you can force to load anyway, by passing -f as the first parameter
 function import() {
+	#echo "$@"
 	local force=0
+	local DIR
+	local dependency
 	if (( $# > 1 )) && [[ "$1" == '-f' ]] ; then
-		force=1
+		force="1"
 		shift
 	fi
 	get_source_dir "DIR"
-	for dependency in $@ ; do
-		if [[ "$force" == "1" ]] || ! is_defined "$dependency" ; then
-			debug "sourceing : $DIR/$dependency.sh"
-			source "$DIR/$dependency.sh"
+	for module in $@ ; do
+		if [[ "$force" == "1" ]] || ! is_defined "$module" ; then
+			dependency="$( convert_package_to_filename "$DIR" "$module" )"
+			source "$dependency"
 		fi
 	done
 }
 
-
-function debug() {
-  [[ "$DEBUG" == "1" ]] && echo "$@" 1>&2
-}
-
+init
 import -f is_defined
-import -f debug
-
