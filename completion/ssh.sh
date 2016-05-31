@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-function ssh_completion() {
+function completion.ssh() {
 	SSH_COMPLETE=()
 	if [ -f ~/.ssh/config ] ; then
 	  SSH_COMPLETE=( ${SSH_COMPLETE[*]} \
@@ -17,4 +17,4 @@ function ssh_completion() {
 	complete -o default -W "${SSH_COMPLETE[*]}" scp
 }
 
-ssh_completion
+completion.ssh

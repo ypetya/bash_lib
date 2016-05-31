@@ -3,7 +3,7 @@
 import require_package
 
 if require_package cheat ; then
-  function cheat_completion()
+  function completion.cheat()
   {
       local cur=${COMP_WORDS[COMP_CWORD]}
       CHEAT_COMPLETE=( $(ls -1 $CHEAT $CHEAT/errtheblog/ | \
@@ -11,6 +11,6 @@ if require_package cheat ; then
 		sort -u | cut -f1 -d'.' ) )
       COMPREPLY=( $(compgen -W "${CHEAT_COMPLETE[*]}" -- $cur) )
   }
-  complete -F cheat_completion ch
-  complete -F cheat_completion cheat
+  complete -F completion.cheat ch
+  complete -F completion.cheat cheat
 fi

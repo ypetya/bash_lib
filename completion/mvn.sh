@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-function mvn_completion()
+function completion.mvn()
 {
   local cur=${COMP_WORDS[COMP_CWORD]}
 #  _get_comp_words_by_ref -n : cur
@@ -58,7 +58,7 @@ function mvn_completion()
     COMPREPLY=( $(compgen -W "${MVN_COMMANDS[*]}" -- $cur) )
 }
 
-complete -F mvn_completion mvn
+complete -F completion.mvn mvn
 COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
 COMP_WORDBREAKS=${COMP_WORDBREAKS//-}
 COMP_WORDBREAKS=${COMP_WORDBREAKS//=}

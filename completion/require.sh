@@ -2,9 +2,9 @@
 
 import list
 
-function require_completion() {
+function completion.require() {
   local cur=${COMP_WORDS[COMP_CWORD]}
   REQUIRE_COMPLETE=( $( list ) )
   COMPREPLY=( $(compgen -W "${REQUIRE_COMPLETE[*]}" -- $cur) )
 }
-complete -F require_completion require
+complete -F completion.require require
