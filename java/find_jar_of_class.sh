@@ -2,7 +2,7 @@
 
 import set_separator
 # this function helps you to find a jar file for the class
-function find_jar_of_class() {
+function java.find_jar_of_class() {
   set_separator
 
   jars=( $( find -type f -name "*.jar" ) )

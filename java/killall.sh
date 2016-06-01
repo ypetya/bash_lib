@@ -3,7 +3,7 @@
 import require_package
 
 if require_package jps taskkill ; then
-	function killall_java() {
+	function java.killall() {
 	  unset PIDS
 	  local PIDS=( $(jps | cut -d' ' -f1) )
 	  PIDS=(${PIDS[@]:1})
