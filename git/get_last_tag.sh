@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import tags first
+import git.tags first
 
 function git.get_last_tag() {
 	# you can apply more sort=<key> clauses for git tag

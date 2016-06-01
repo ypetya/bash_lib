@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# TODO : next to introduce : override / inheritance?
-# Inheritance
-# -----------
-# by allowing no package names in functions could enable easy override
-# of functions depending
-# Global functions could be defined by special filenames like starting
-# with lodash.
-
 import print.print print.debug
 import first
 import timer

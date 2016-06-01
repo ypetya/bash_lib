@@ -2,7 +2,7 @@
 
 import git.changed
 
-function pull() {
+function git.pull() {
   if [[ $# == 0 ]] ; then
 	if git.changed ; then
 		git stash
@@ -15,3 +15,5 @@ function pull() {
   git pull "$@"
   return $?
 }
+
+alias pull="git.pull"

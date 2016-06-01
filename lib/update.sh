@@ -2,7 +2,7 @@
 
 import timer
 import git.check_remote_updated
-import pull
+import git.pull
 import get_source_dir
 import print.print
 import list
