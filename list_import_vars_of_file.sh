@@ -9,5 +9,15 @@ function list_import_vars_of_file() {
 	local extee
 	get_file_extension "$file" extee
 	local sed_extract="${sed_extract_import_vars[$extee]}"
-	sed_extract sed_extract $file | tr -d '{},'
+
+	case $extee in
+		sh)
+			sed_extract sed_extract $file | \
+				sed -r 's/[a-z_]+\.([a-z_]+)/\1/g'
+			;;
+		js)
+			sed_extract sed_extract $file | \
+				tr -d '{},'
+			;;
+	esac
 }

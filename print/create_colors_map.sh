@@ -2,7 +2,7 @@
 
 import create_map
 
-function create_colors_map() {
+function print.create_colors_map() {
 	create_map colors
 
 	colors[default]=0

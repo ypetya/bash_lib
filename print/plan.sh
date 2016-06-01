@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function print_plan() {
+function print.plan() {
 	if [ -f "$HOME/.plan" ]; then
 	  cat $HOME/.plan
 	fi

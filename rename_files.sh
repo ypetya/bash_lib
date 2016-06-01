@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import print.print
 import find_blacklist
 
 function rename_files() {

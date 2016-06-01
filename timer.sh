@@ -1,6 +1,7 @@
 #!/bin/bash
 
-import print error is_variable
+import print.print print.error
+import is_variable
 
 function timer() {
 	TIMER_START="$(date +%s)"

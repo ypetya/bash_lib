@@ -2,7 +2,7 @@
 
 import list_import_vars_of_file
 import find_blacklist
-
+import print.print print.debug
 
 function remove_unused_imports() {
 	local files=( $( eval find . -type f $find_blacklist ) )

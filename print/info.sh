@@ -1,8 +1,8 @@
 #!/bin/bash
 
-import is_variable print error
+import is_variable print.print print.error
 
-function print_info() {
+function print.info() {
 	local fn_name="${1? param missing - fn or variable name}"
 	local is_a=$(type -t "$fn_name")
 	print yellow "$fn_name"

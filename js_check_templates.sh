@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import debug
+import print.debug print.error
 import js_get_templates
 import is_file
 import get_file_directory

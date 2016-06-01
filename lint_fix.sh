@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import print.print print.error
 import require_package
 require_package npm grunt
 

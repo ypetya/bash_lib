@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import print
+import print.print
 import string.match_regex
 
 function array_find() {

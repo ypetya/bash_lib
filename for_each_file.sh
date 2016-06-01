@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import debug
+import print.debug
 import find_blacklist
 
 # it will call $1 callback with file names passing one-by-one

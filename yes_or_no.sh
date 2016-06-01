@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import print
+import print.print
 
 # example usage :
 # $ string.match_regex asdbdsafasfd sd ; yes_or_no

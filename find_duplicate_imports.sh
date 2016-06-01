@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import print.print print.debug
 import list_imports_of_file
 import find_blacklist
 

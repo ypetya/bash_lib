@@ -4,7 +4,7 @@ import timer
 import git.check_remote_updated
 import pull
 import get_source_dir
-import print
+import print.print
 import list
 
 function lib.update() {

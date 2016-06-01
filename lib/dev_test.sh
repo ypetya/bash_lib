@@ -8,6 +8,7 @@
 # Global functions could be defined by special filenames like starting
 # with lodash.
 
+import print.print print.debug
 import first
 import timer
 import get_source_dir

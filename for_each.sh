@@ -1,5 +1,6 @@
 #!/bin/bash
 
+import print.debug
 # Eg:
 # require create_week_days
 # for_each week_days echo

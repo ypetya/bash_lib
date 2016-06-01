@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import debug
+import print.debug
 import install_package
 # check for existing tools like the following:
 #

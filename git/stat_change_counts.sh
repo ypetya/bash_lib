@@ -3,7 +3,7 @@
 import timer
 import git.log_stat
 import create_map
-import debug
+import print.print print.debug
 import is_file
 import ask_user
 # This function may give you back the hotspot of risks in the project

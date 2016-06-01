@@ -1,7 +1,7 @@
 #!/bin/bash
 
 import get_file_type
-import print debug
+import print.print print.debug
 import string.match_regex
 # list files containing specific strings in file-type
 # recursing from the current dir

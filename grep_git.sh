@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import print git.get_committers_of_file
+import print.print git.get_committers_of_file
 
 function grep_git() {
 	local file_name

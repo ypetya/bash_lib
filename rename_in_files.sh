@@ -1,6 +1,7 @@
 #!/bin/bash
 
 import ask_user
+import print.print print.debug
 
 function rename_in_files() {
 	local pattern_from="${1? param missing - pattern_from}"

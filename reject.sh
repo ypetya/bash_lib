@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+import print.debug
 # This function rejects array elements
 #
 # input parameters
