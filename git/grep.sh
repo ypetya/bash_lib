@@ -2,7 +2,7 @@
 
 import print.print git.get_committers_of_file
 
-function grep_git() {
+function git.grep() {
 	local file_name
 	local last_file_name='-1'
 	local change_line
