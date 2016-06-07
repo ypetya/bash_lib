@@ -6,7 +6,7 @@ require_package npm grunt
 
 import is_file timer
 
-function lint_fix () {
+function npm.lint_fix () {
 	timer
 	# TODO should walk-up dir to find the next package.json
 	if ! is_file package.json ; then
@@ -28,3 +28,5 @@ function lint_fix () {
 	fi
 	timer_stop
 }
+
+alias lint_fix='npm.lint_fix'

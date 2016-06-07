@@ -2,7 +2,7 @@
 
 import is_file error
 
-function npm_get_artifact_name() {
+function npm.get_artifact_name() {
 	require_package npm
 
 	if ! is_file package.json ; then
