@@ -11,7 +11,7 @@ function grep_git() {
 	# -i insensitive
 	# -r recursive
 	# -n containing line numbers
-	grep -irn "$@" -exclude="./git/*" | while read match ; do
+	grep -irn "$@" $(git ls) | while read match ; do
 		file_name="$(echo $match | cut -d ':' -f 1)"
 		change_line="$(echo $match | cut -d ':' -f 2)"
 		matching_line="$(echo $match | cut -d ':' -f 3,4,5)"
