@@ -67,7 +67,7 @@ function lib.dev_test() {
 	find_duplicate_imports
 	find_unused_imports
 	# print out notes
-	grep -rnE 'FIXME|TODO' "$dir" --exclude="bash_lib_dev_test.sh" \
+	grep -rnE '#[ ]?(FIXME|TODO)' "$dir" --exclude="bash_lib_dev_test.sh" \
 		--exclude="./git/*"
 
 	if [ "$is_error" == "0" ] ; then
