@@ -14,7 +14,8 @@ function load_user_config() {
 		ask_user "Please enter token" token
 		echo "token=\"$token\"" >> ~/.user_config
 		print "Searching for chrome in /c/..\n"
-		echo "chrome_exe=\"$(file.find_first /c/ chrome.exe)\"" >> ~/.user_config		
+		echo "chrome_exe=\"$(file.find_first /c/ chrome.exe)\"" >> \
+		~/.user_config
 	fi
 	source ~/.user_config
 }

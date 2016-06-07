@@ -7,5 +7,5 @@ function list_get_row() {
 		sed -n "${row_num}p" "$@"
 	else
 		sed -n "${row_num}p"
-	fi	
+	fi
 }
