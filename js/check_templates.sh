@@ -1,11 +1,11 @@
 #!/bin/bash
 
 import print.debug print.error
-import js_get_templates
+import js.get_templates
 import is_file
 import get_file_directory
 
-function js_check_templates() {
+function js.check_templates() {
 	local file="${1? param missing - file}"
 	local templates="$(js_get_templates $file)"
 	local path_base="$(get_file_directory $file)"
