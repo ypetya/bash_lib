@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# bash4 : when there is a quote, string match takes place
+# bash4 : when there is a doublequote, string match takes place
 #
 function string.match_regex() {
 	local string="${1?param missing - string}"
