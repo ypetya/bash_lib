@@ -10,9 +10,9 @@ function init() {
 	done
 }
 
-# this function can source a *.sh relative to the directory of own
-# it will skip loaded packages
-# you can force to load anyway, by passing -f as the first parameter
+# this function can source a *.sh relative to the directory of its own
+# lazyload: it will skip loaded packages unless -f is the first parameter
+# TODO : directory import
 function import() {
 	#echo "$@"
 	local force=0

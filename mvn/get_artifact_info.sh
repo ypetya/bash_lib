@@ -21,13 +21,13 @@ function mvn.get_artifact_info() {
 		if [[ "${tag:0:7}" == 'project' ]] ; then
 			let ref_depth=$depth+1
 		fi
-		
+
 		debug "$depth $tag : ""'""${content%%* }""'"
-		
+
 		if (( $depth == $ref_depth )) ; then
 			echo "$depth $tag : ""'""${content%%* }""'"
 		fi
-		
+
 		if [[ "${tag:0:1}" == '/' ]] ; then
 			let depth=$depth-1
 		else
