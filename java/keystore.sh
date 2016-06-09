@@ -14,6 +14,6 @@ function java.keystore() {
 	local command="${1? param missing - command}"
 
 	keytool -"$@" \
-		-keystore $JAVA_HOME/jre/lib/securimty/cacerts \
+		-keystore $JAVA_HOME/jre/lib/security/cacerts \
 		-storepass changeit
 }
