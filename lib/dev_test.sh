@@ -5,7 +5,7 @@ import first
 import timer
 import get_source_dir
 import file_contains
-import sed_fix_trailing_spaces
+import sed.fix_trailing_spaces
 import find_duplicate_imports
 import find_unused_imports
 import git.get_committer_email
@@ -53,7 +53,7 @@ function lib.dev_test() {
 		# 3. no trailing spaces
 		if file_contains "\s$" $file ; then
 			print yellow "$file contains trailing space:"
-			sed_fix_trailing_spaces $file
+			sed.fix_trailing_spaces $file
 			print green "fixing.\n"
 		fi
 		# 4. first line is shebang

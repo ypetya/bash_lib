@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function sed_fix_trailing_spaces() {
+function sed.fix_trailing_spaces() {
 	local file=${1? param missing - file}
 	# To print:
 	# sed -nr "/[[:space:]]$/p" $file

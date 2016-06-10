@@ -5,7 +5,6 @@ import xml.read
 
 function mvn.get_artifact_info() {
 	require_package mvn
-
 	if ! is_file pom.xml ; then
 		error 'There is no pom.xml in the current directory'
 		return 1

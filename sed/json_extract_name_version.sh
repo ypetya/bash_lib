@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function sed_json_extract_name_version() {
+function sed.json_extract_name_version() {
 	# 1. remove white spaces
 	# 2. add enters on every object start
 	# 3. eliminate line endings "name":" and "version":" and closing "
