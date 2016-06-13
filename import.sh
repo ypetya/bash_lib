@@ -12,7 +12,7 @@ function init() {
 
 # this function can source a *.sh relative to the directory of its own
 # lazyload: it will skip loaded packages unless -f is the first parameter
-# TODO : directory import
+# it can import a full directory
 function import() {
 	#echo "$@"
 	local force=0
@@ -26,7 +26,11 @@ function import() {
 	for module in $@ ; do
 		if [[ "$force" == "1" ]] || ! is_defined "$module" ; then
 			dependency="$( convert_package_to_filename "$DIR" "$module" )"
-			source "$dependency"
+			if [ -f $dependency ] ; then
+				source "$dependency"
+			elif [ -d ${dependency%.sh} ] ; then
+				source ${dependency%.sh}/*.sh
+			fi
 		fi
 	done
 }
