@@ -1,14 +1,19 @@
 #!/bin/bash
 
-import is_file error
+import file.walk_up
+import is_file
 
 function npm.get_artifact_name() {
 	require_package npm
-
+	local dir=''
 	if ! is_file package.json ; then
-		error 'There is no package.json in the current directory'
-		return 1
+		dir="$(walk_up package.json)"
+		pushd $dir >> /dev/null
 	fi
 
 	grep name package.json | tr -d ' ' | sed -r 's/"name":"|",//g'
+
+	if (( ${#dir} > 0 )) ; then
+		popd >> /dev/null
+	fi
 }

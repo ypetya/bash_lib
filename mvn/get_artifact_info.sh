@@ -1,20 +1,22 @@
 #!/bin/bash
 
-import is_file print.error
+import is_file
 import xml.read
+import file.walk_up
 
 function mvn.get_artifact_info() {
 	require_package mvn
-	if ! is_file pom.xml ; then
-		error 'There is no pom.xml in the current directory'
-		return 1
-	fi
 	local tag
 	local content
-	local depth
-	local ref_depth
-	ref_depth=-2
-	depth=0
+	local depth=0
+	local ref_depth=-2
+
+	local dir=''
+	if ! is_file pom.xml ; then
+		dir="$(walk_up pom.xml)"
+		pushd $dir >> /dev/null
+	fi
+
 	cat pom.xml | while xml.read 'tag' 'content' ; do
 
 		if [[ "${tag:0:7}" == 'project' ]] ; then
@@ -33,4 +35,8 @@ function mvn.get_artifact_info() {
 			let depth=$depth+1
 		fi
 	done
+
+	if (( ${#dir} > 0 )) ; then
+		popd >> /dev/null
+	fi
 }
