@@ -16,6 +16,7 @@ function lib.dev_test() {
 	timer
 	local dir
 	get_source_dir dir
+	pushd $dir >> /dev/null
 	local fn_name
 	local module_name
 	local line_width
@@ -76,4 +77,8 @@ function lib.dev_test() {
 		print yellow "$(git.get_committer_email)\n"
 	fi
 	timer_stop
+	if ask_user 'Would you like to run git-gui?' ; then
+		git gui
+	fi
+	popd >> /dev/null
 }
