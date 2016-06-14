@@ -9,6 +9,7 @@ import sed.fix_trailing_spaces
 import find_duplicate_imports
 import find_unused_imports
 import git.get_committer_email
+import git.get_changes_number
 import convert_filename_to_package
 
 # This helper is about to ensure rules in this library
@@ -77,7 +78,8 @@ function lib.dev_test() {
 		print yellow "$(git.get_committer_email)\n"
 	fi
 	timer_stop
-	if ask_user 'Would you like to run git-gui?' ; then
+	if (( $(git.get_changes_number) > 0 )) && ask_user \
+		'Would you like to run git-gui?' ; then
 		git gui
 	fi
 	popd >> /dev/null
