@@ -1,9 +1,13 @@
 #!/bin/bash
 
-import first
+import first git.changed
 
 function git.what_have_i_done() {
   local check="${GIT_COMMITTER_EMAIL? variable missing}"
+  if git.changed ; then
+	error 'Please commit your changes'
+	return 1
+  fi
   # Git help log
   # ------------
   # %h: abbreviated commit hash

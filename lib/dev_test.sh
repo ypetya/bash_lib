@@ -12,6 +12,7 @@ import git.get_committer_email
 import git.get_changes_number
 import convert_filename_to_package
 
+# TODO : explode this fn, as it got too large
 # This helper is about to ensure rules in this library
 function lib.dev_test() {
 	timer
