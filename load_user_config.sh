@@ -1,6 +1,6 @@
 #!/bin/bash
 
-import is_file
+import file.is_file
 import ask_user
 import print.print
 import file.find_first
@@ -14,6 +14,7 @@ function load_user_config() {
 		ask_user "Please enter token" token
 		echo "token=\"$token\"" >> ~/.user_config
 		print "Searching for chrome in /c/..\n"
+		# TODO is_mingw
 		echo "chrome_exe=\"$(file.find_first /c/ chrome.exe)\"" >> \
 		~/.user_config
 	fi

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-import print.print print.error
+import print
 import require_package
-import is_file timer
+import timer
+import file.is_file
 import file.walk_up
 
 function npm.lint_fix () {

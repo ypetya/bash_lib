@@ -2,7 +2,7 @@
 
 import print.debug print.error
 import js.get_templates
-import is_file
+import file.is_file
 import get_file_directory
 
 function js.check_templates() {

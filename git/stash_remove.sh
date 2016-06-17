@@ -27,7 +27,7 @@ function git.stash_remove() {
 [space separated ascending numbers]' list
 		#to_array
 		list=($list)
-		echo "${list[@]}"
+
 		local num=0
 		local head
 		local max=$(git stash list | wc -l)

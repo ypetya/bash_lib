@@ -1,9 +1,10 @@
 #!/bin/bash
 
-import is_directory is_text_file list_counts_desc
-import print error
-import git.changed
+import print
 import timer
+import file.is_directory file.is_text_file
+import list_counts_desc
+import git.changed
 import git.get_committers_of_file
 
 # returns a statistic on commited lines
