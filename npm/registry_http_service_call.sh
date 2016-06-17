@@ -2,12 +2,16 @@
 
 import load_user_config
 import http_get
+import string.to_lower
 
-function http_service_call() {
+function npm.registry_http_service_call() {
 	local env=${1? param missing - environment}
 
+	env=$(echo $env | string.to_lower)
 	load_user_config
 
 	http_get -vkH "$token" "${service_endpoint}$env"
+	# return status
+	return $?
 }
 
