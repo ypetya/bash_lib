@@ -1,9 +1,11 @@
 #!/bin/bash
 
-import npm.get_project_artifact_name
+import sed.remove_empty_lines
 
 function npm.get_dev_dependencies() {
-	local artifact=$(npm.get_project_artifact_name)
+	local artifact="${1?param missing - artifact_name}"
 
-	npm view $artifact devDependencies
+	npm view $artifact devDependencies | \
+		tr -d "{} '," | \
+		sed.remove_empty_lines
 }

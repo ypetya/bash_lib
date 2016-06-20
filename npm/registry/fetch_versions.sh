@@ -1,14 +1,14 @@
 #!/bin/bash
 
-import npm.registry_http_service_call
+import npm.registry.http_service_call
 import sed.json_extract_name_version
 
-function npm.registry_fetch_versions() {
+function npm.registry.fetch_versions() {
 	print yellow "fetching...\n"
 	local service_data
 	for env in DEV UAT PROD ; do
 		print "$env : "
-		service_data="$(npm.registry_http_service_call $env)"
+		service_data="$(npm.registry.http_service_call $env)"
 		local error="$?"
 		if [ $error = "0" ] ; then
 			print green 'ok\n'

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-import sed.git_extract_commit
-
 function git.blame() {
 	local file_name=${1? param missing - file_name}
 	local line
