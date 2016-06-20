@@ -1,6 +1,8 @@
 Goals
 =====
 
+Bash library for people who do.
+
 * Introduce a very easy to use utility belt for scripting
 * Construct a highly reusable module oriented framework, similar to js
 * Automatize everything
