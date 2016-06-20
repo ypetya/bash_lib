@@ -11,13 +11,13 @@ function npm.registry_get_version() {
 	if ! is_variable DEV_DEPLOY_VERSIONS ; then
 		npm.registry_fetch_versions
 	else
-		print yellow "using existing data, use fetch_deploy_versions\n"
+		print yellow "Using cached data, to clear cache use\
+ npm.registry_clear_local_version_cache\n"
 	fi
-	print yellow 'DEV\n'
-	array_find DEV_DEPLOY_VERSIONS $package
-	print yellow 'UAT\n'
-	array_find UAT_DEPLOY_VERSIONS $package
-	print yellow 'PROD\n'
-	array_find PROD_DEPLOY_VERSIONS $package
-
+	local version
+	for env in DEV UAT PROD ; do
+		version="$(array_find "${env}_DEPLOY_VERSIONS" $package)"
+		print yellow "$env"
+		print " $version\n"
+	done
 }
