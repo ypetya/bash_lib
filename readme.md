@@ -1,10 +1,10 @@
 Goals
 =====
 
-* Introduce a very easy to use utility belt for scripting.
-* Construct a highly reusable module oriented framework.
-* Automatize everything.
-* Try to use programming principles: clean code and SOLID
+* Introduce a very easy to use utility belt for scripting
+* Construct a highly reusable module oriented framework, similar to js
+* Automatize everything
+* Try to use programming principles, where possible: clean code and SOLID
 * Introduce some high level scripting technics for bash: callbacks, IoC
 
 Howto
@@ -20,13 +20,18 @@ git clone https://kisp@bitbucket.org/kisp/bash_lib.git
 echo "source ~/bash_lib/.source" >> .bashrc
 ```
 
-That's it.
+That's it. Now you have functions defined in your terminal.
+Try autocomplete, or list them all, with the command `list`
 
-Reload module
--------------
+Reload amodule
+--------------
+
+After you have changed something, try to reload it with the
+`require` command.
+For example:
 
 ```
-require require_completion
+require http_get
 ```
 
 Write scripts
@@ -35,7 +40,7 @@ Write scripts
 The library contains an own Require / Import mechanism.
 `require` is the human friendly tool to import a module into the scope.
 when you pass one argument, it will print out the imported object type,
-with `print_info` . A module can be either a variable or a function.
+with `print.info` . A module can be either a variable or a function.
 Each file contains exactly one module. `require` always loads the module
 from the disk. The tool `import` makes the same for a script. It has a 
 lazy load implementation. Passing the parameter `-f` as the first, can force
@@ -46,23 +51,21 @@ Each module should have a basic description in the file.
 Update my copy to the latest version
 ------------------------------------
 
-Run
-```
-$ bash_lib_update
-```
+Run `lib.update`. It will check the remote git repository for changes.
+It updates the repo with using git stash, so you don't have to care
+about local changes.
 
-Check my code quality
----------------------
+Check my code quality before commiting something new
+----------------------------------------------------
 
-Run
-```
-$ bash_lib_dev_test
-```
+Run `lib.dev_test`. It will check several points to ensure code quality.
 
 Tips
 ====
 
-try to set variable `DEBUG=1` to get more information
+* Try to set variable `DEBUG=1` to get more information.
+* The command `print` can use colors by printing info.
+* `import` can import a whole package (or directory)
 
 Links
 =====

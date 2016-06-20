@@ -1,0 +1,7 @@
+name:bash_lib
+version:0.0.1
+description:Simplified bash utility belt for developers
+author:Peter Kiss <ypetya@gmail.com>
+repository.type:git
+repository.url:https://bitbucket.org/kisp/bash_lib
+bugs.url:
