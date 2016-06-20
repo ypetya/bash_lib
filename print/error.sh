@@ -3,8 +3,7 @@
 import print.print
 
 function print.error() {
-	print red "$*"
-	print "\n"
+	print red "$*\n" >&2
 }
 
 alias error="print.error"

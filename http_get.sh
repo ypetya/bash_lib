@@ -1,5 +1,7 @@
 #!/bin/bash
 
+import print.error
+
 function http_get() {
 	# set default connect timeout to 5 seconds
 	local HTTP_CONNECT_TIMEOUT_IN_SEC=${HTTP_CONNECT_TIMEOUT_IN_SEC:-5}
@@ -24,6 +26,7 @@ function http_get() {
 
 	# return err when not classed OK
 	if [ ! "${status:0:1}" = "2" ] ; then
+		error "Http Error, status code:${status}"
 		return 1
 	fi
 }
