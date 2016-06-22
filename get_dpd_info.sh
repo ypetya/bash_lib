@@ -8,6 +8,6 @@ function get_dpd_info() {
 	# 1. get lines
 	# 2. sanitize
 	http_get "$check_url" | \
-		grep -e '^<td' | \
-		sed -r "s/<[/]?td[^>]*>|<br>|\&nbsp;/ /g;s/ +/ /g"
+		grep -e '^<td>[0-9]' | \
+		sed -r "s/<[/]?t[dr][^>]*>?|<[/]?a[^>]*>|<img[^>]*>|<[/]?b[r]?[/]?>|\&nbsp;|\&bull;/ /g;s/ +/ /g"
 }
