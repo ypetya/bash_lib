@@ -4,7 +4,7 @@ import print.print print.debug
 import first
 import timer
 import get_source_dir
-import file_contains
+import file.contains
 import sed.fix_trailing_spaces
 import find_duplicate_imports
 import find_unused_imports
@@ -29,12 +29,12 @@ function lib.dev_test() {
 		file="${file#./*}"
 		module_name="$(convert_filename_to_package . $file)"
 		fn_name="function $module_name"
-		debug "* file_contains \"$fn_name\" $file"
-		if ! file_contains "$fn_name" "$file" ; then
+		debug "* file.contains \"$fn_name\" $file"
+		if ! file.contains "$fn_name" "$file" ; then
 			debug ' * no'
 			fn_name="export $module_name"
-			debug "* file_contains $fn_name $file"
-			if ! file_contains "$fn_name" "$file" ; then
+			debug "* file.contains $fn_name $file"
+			if ! file.contains "$fn_name" "$file" ; then
 				debug ' * no'
 				error "$file does not have $fn_name"
 				is_error=1
@@ -54,7 +54,7 @@ function lib.dev_test() {
 			is_error=1
 		fi
 		# 3. no trailing spaces
-		if file_contains "\s$" $file ; then
+		if file.contains "\s$" $file ; then
 			print yellow "$file contains trailing space:"
 			sed.fix_trailing_spaces $file
 			print green "fixing.\n"

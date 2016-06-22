@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function file_contains() {
+function file.contains() {
 	local result=$(
 		sed -nr \
 			"s/${1? param missing : string to find}/1/p" \
