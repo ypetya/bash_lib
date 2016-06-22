@@ -8,9 +8,9 @@ import find_blacklist
 #
 # Example:
 # -------
-# for_each_file get_file_type
+# file.for_each file.get_type
 # => will print out all the file types
-function for_each_file() {
+function file.for_each() {
 	local callback="${1?param missing - callback}"
 	local files=( $( eval find . -type f $find_blacklist ) )
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 import print.print print.debug
-import list_import_vars_of_file
+import file.list_import_vars
 import find_blacklist
 
 function find_unused_imports() {
@@ -10,7 +10,7 @@ function find_unused_imports() {
 	local count
 	declare -i count
 	for file in ${files[@]} ; do
-		imports=( $( list_import_vars_of_file $file ) )
+		imports=( $( file.list_import_vars $file ) )
 
 		for i in ${imports[@]} ; do
 			debug "$file import $i"

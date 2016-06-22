@@ -2,7 +2,7 @@
 
 import print
 import timer
-import file.is_directory file.is_text_file
+import file.is_directory file.is_text
 import list_counts_desc
 import git.changed
 import git.get_committers_of_file
@@ -36,7 +36,7 @@ function git.what_have_they_done() {
 	declare -il processed_files=0
 
 	for file in ${files[@]} ; do
-		if is_text_file "$file" ; then
+		if file.is_text "$file" ; then
 			committers=( $(git.get_committers_of_file $file) ${committers[@]} )
 			processed_files+=1
 		fi

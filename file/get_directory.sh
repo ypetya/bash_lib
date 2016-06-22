@@ -1,7 +1,7 @@
 #!/bin/bash
 
 import print.debug
-function get_file_directory() {
+function file.get_directory() {
 	local file="${1? param missing - file}"
 	local out=${2? param missing - output_var}
 	local local_dir="${file%/*}"

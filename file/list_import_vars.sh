@@ -1,13 +1,13 @@
 #!/bin/bash
 
 import sed.extract_import_vars
-import get_file_extension
+import file.get_extension
 import sed.extract
 
-function list_import_vars_of_file() {
+function file.list_import_vars() {
 	local file="${1? param missing - file}"
 	local extee
-	get_file_extension "$file" extee
+	file.get_extension "$file" extee
 	local sed_extract="${sed_extract_import_vars[$extee]}"
 
 	case $extee in
