@@ -1,5 +1,5 @@
 #!/bin/bash
 
 function date.time() {
-	date %T
+	date +%T
 }
