@@ -3,18 +3,13 @@
 import print
 import require_package
 import timer
-import file.is_file
 import file.walk_up
 
 function npm.lint_fix () {
 	require_package npm grunt
 	timer
-	local dir=''
-
-	if ! is_file package.json ; then
-		dir="$(walk_up package.json)"
-		pushd $dir >> /dev/null
-	fi
+	local dir="$(walk_up package.json)"
+	pushd $dir >> /dev/null
 
 	if ! grunt eslint:dev ; then
 		error ' * eslint failed, executing eslint fix'
@@ -29,10 +24,7 @@ function npm.lint_fix () {
 		fi
 	fi
 
-	if (( ${#dir} > 0 )) ; then
-		popd >> /dev/null
-	fi
-
+	popd >> /dev/null
 
 	timer_stop
 }

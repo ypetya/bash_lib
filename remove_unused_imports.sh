@@ -1,11 +1,11 @@
 #!/bin/bash
 
 import file.list_import_vars
-import find_blacklist
+import find.blacklist
 import print.print print.debug
 
 function remove_unused_imports() {
-	local files=( $( eval find . -type f $find_blacklist ) )
+	local files=( $( find.blacklist . -type f ) )
 	local imports
 	local count
 	declare -i count

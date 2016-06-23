@@ -2,10 +2,10 @@
 
 import print.print print.debug
 import file.list_imports
-import find_blacklist
+import find.blacklist
 
 function find_duplicate_imports() {
-	local files=( $( eval find . -type f $find_blacklist ) )
+	local files=( $( find.blacklist . -type f ) )
 	local top_import
 	local count
 	declare -i count

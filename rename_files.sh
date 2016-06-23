@@ -1,13 +1,13 @@
 #!/bin/bash
 
 import print.print
-import find_blacklist
+import find.blacklist
 import string.match
 
 function rename_files() {
 	local change_from="${1? param missing - change_from}"
 	local change_to="${2? param missing - change_to}"
-	local files=$( eval find . -type f  $find_blacklist )
+	local files=$( find.blacklist . -type f )
 	for f in $files ; do
 		if string.match $f $change_from ; then
 			print red "$f"
