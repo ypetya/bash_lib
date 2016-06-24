@@ -1,8 +1,8 @@
 #!/bin/bash
 
-import first http_get
+import http_get
 
-function get_home_temperature() {
+function raspberry.get_ip() {
 	# below logic gets and parses a json, to find the endpoint
 	# $1 - my dyndns [ no http prefix ]
 	# $2 - location id
@@ -14,7 +14,5 @@ function get_home_temperature() {
 		grep $location | \
 		cut -d ',' -f 3)
 
-	http_get "http://$endpoint/temp/q" | \
-		grep OK | first | sed -r 's/[ {}]//g'
-
+	echo "$endpoint"
 }
