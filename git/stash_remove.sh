@@ -24,7 +24,7 @@ function git.stash_remove() {
 		git stash list
 		local list
 		ask_user 'Please specify list-items to drop!
-[space separated ascending numbers]' list
+[space separated ascending index numbers of the list]' list
 		#to_array
 		list=($list)
 
