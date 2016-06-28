@@ -75,10 +75,12 @@ function lib.dev_test() {
 
 	if [ "$is_error" == "0" ] ; then
 		print green "All is green.\n"
-		print "Committer email : "
-		print yellow "$(git.get_committer_email)\n"
 	fi
 	timer_stop
+
+	print "Committer email : "
+	print yellow "$(git.get_committer_email)\n"
+
 	if (( $(git.get_changes_number) > 0 )) && ask_user \
 		'Would you like to run git-gui?' ; then
 		git gui
