@@ -7,7 +7,7 @@ function http_get() {
 	local HTTP_CONNECT_TIMEOUT_IN_SEC=${HTTP_CONNECT_TIMEOUT_IN_SEC:-5}
 	# set default transfer timeout to 10 seconds
 	local HTTP_TRANSFER_TIMEOUT_IN_SEC=${HTTP_TRANSFER_TIMEOUT_IN_SEC:-10}
-	
+
 	debug "curl -sL $@ "
 	# -s is for silent mode ( not to output timings)
 	# -L is for follow redirects
