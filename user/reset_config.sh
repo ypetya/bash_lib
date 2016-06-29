@@ -1,5 +1,5 @@
 #!/bin/bash
 
-function reset_user_config() {
+function user.reset_config() {
 	rm -v ~/.user_config
 }
