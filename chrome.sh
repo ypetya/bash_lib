@@ -20,7 +20,7 @@ function chrome() {
 			eval $chrome_exe "$@"
 			;;
 		*)
-			echo " modes : dev|secure"
+			echo " chrome <dev|secure|incognito|open>"
 			;;
 	esac
 }

@@ -21,4 +21,8 @@ function user.create_configs() {
 		require_package chromium-browser
 		echo "chrome_exe=\"$(which chromium-browser)\"" >> ~/.user_config
 	fi
+
+	ask_user "jira_url (including string ticket_id)?" jira_url
+	echo "jira_url=\"$jira_url\"" >> ~/.user_config
+
 }
