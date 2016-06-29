@@ -1,7 +1,7 @@
 #!/bin/bash
 
 import user.load_config
-import http_get
+import http.get
 import string.to_lower
 
 function npm.registry.http_service_call() {
@@ -10,7 +10,7 @@ function npm.registry.http_service_call() {
 	env=$(echo $env | string.to_lower)
 	user.load_config
 
-	http_get -vkH "$token" "${service_endpoint}$env"
+	http.get -vkH "$token" "${service_endpoint}$env"
 	# return status
 	return $?
 }

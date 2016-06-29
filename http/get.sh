@@ -2,7 +2,7 @@
 
 import print.error print.debug
 
-function http_get() {
+function http.get() {
 	# set default connect timeout to 5 seconds
 	local HTTP_CONNECT_TIMEOUT_IN_SEC=${HTTP_CONNECT_TIMEOUT_IN_SEC:-5}
 	# set default transfer timeout to 10 seconds

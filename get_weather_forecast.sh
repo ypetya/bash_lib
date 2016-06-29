@@ -1,7 +1,7 @@
 #!/bin/bash
 
-import http_get
+import http.get
 
 function get_weather_forecast() {
-	http_get "http://wttr.in"
+	http.get "http://wttr.in"
 }

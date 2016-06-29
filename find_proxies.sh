@@ -13,17 +13,17 @@
 # $ systeminfo
 # http://superuser.com
 # /questions/346372/how-do-i-know-what-proxy-server-im-using
-import ask_user http_get
+import ask_user http.get
 function find_proxies() {
   local a_proxy_url
   ask_user 'Please enter the HTTP auto proxy url to check? \
 (http://my-domain-auto-proxy-lookup/proxies.js) :' a_proxy_url
   PROXIES=( \
-	$( http_get $a_proxy_url | \
+	$( http.get $a_proxy_url | \
 		perl -ne 'if(/PROXY ([^";]*)/g){ print "$1\n";}' \
 		))
   for proxy in ${PROXIES[*]} ; do
-    if http_get -x $proxy https://github.com &> /dev/null ; then
+    if http.get -x $proxy https://github.com &> /dev/null ; then
       echo "$proxy : OK"
     else
       echo "$proxy : not working $?"

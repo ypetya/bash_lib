@@ -33,7 +33,7 @@ After you have changed something, try to reload it with the
 For example:
 
 ```
-require http_get
+require http.get
 ```
 
 Write scripts
