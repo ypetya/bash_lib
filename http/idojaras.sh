@@ -2,7 +2,7 @@
 
 import first http.get
 
-function get_idojaras() {
+function http.idojaras() {
 	# met.hu
 	local met_hu='http://www.met.hu/idojaras/elorejelzes/idokep_fulek/main.php?f=all'
 	http.get "$met_hu" | \
@@ -10,3 +10,5 @@ function get_idojaras() {
 	grep ::: | \
 	first | sed -r 's/(\&nbsp;|<div>|<\/div>)|onmouseout.*|[)"]//g'
 }
+
+alias get_idojaras='http.idojaras'

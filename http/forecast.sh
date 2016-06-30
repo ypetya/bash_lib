@@ -2,6 +2,6 @@
 
 import http.get
 
-function get_weather_forecast() {
+function http.forecast() {
 	http.get "http://wttr.in"
 }
