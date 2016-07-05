@@ -4,6 +4,7 @@ import print.print print.debug
 import file.list_import_vars
 import find.blacklist
 
+# TODO use file.for_each
 function find_unused_imports() {
 	local files=( $( find.blacklist . -type f ) )
 	local imports

@@ -4,6 +4,7 @@ import print.print print.debug
 import file.list_imports
 import find.blacklist
 
+# TODO use file.for_each
 function find_duplicate_imports() {
 	local files=( $( find.blacklist . -type f ) )
 	local top_import
