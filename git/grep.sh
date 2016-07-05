@@ -10,15 +10,16 @@ function git.grep() {
 
 	git grep -ni "$@" | while read match ; do
 		if (( ${#match} > 0 )) ; then
+			debug "$match"
 			file_name="$(echo $match | cut -d ':' -f 1)"
 			change_line="$(echo $match | cut -d ':' -f 2)"
 			matching_line="$(echo $match | cut -d ':' -f 3,4,5,6)"
 			if [ ! "$file_name" == "$last_file_name" ] ; then
-				committers=( $(git.get_committers_of_file "$file") )
+				committers=( $(git.get_committers_of_file "$file_name") )
 			fi
 
-			last_file_name="$file"
-			print yellow "$file"
+			last_file_name="$file_name"
+			print yellow "$file_name"
 			print ":$change_line "
 			print green "${committers[$change_line]}"
 			print ' '
