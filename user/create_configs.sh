@@ -25,4 +25,7 @@ function user.create_configs() {
 	ask_user "jira_url (including string ticket_id)?" jira_url
 	echo "jira_url=\"$jira_url\"" >> ~/.user_config
 
+	ask_user "intellij idea unix-path?" idea_exe
+	echo "idea_exe=\"$idea_exe\"" >> ~/.user_config
+
 }
