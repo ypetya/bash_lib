@@ -1,16 +1,12 @@
 #!/bin/bash
 
-import git.grep list_counts_desc timer git.changed
+import git.grep list_counts_desc timer
+import git.ensure_clean
 
 function git.who_have_done_this() {
-	if git.changed ; then
-		if ! ask_user 'You have uncommited changes. Do you want to continue?'
-		then
-			error 'Please commit your changes'
-			return 1
-		fi
+	if git.ensure_clean ; then
+		timer
+		git.grep $@ | cut -d ' ' -f 2 | list_counts_desc
+		timer_stop
 	fi
-	timer
-	git.grep $@ | cut -d ' ' -f 2 | list_counts_desc
-	timer_stop
 }
