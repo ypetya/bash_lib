@@ -26,7 +26,7 @@ function chrome() {
 				;;
 			help)
 				echo "try passing arguments dev|secure|incognito|mail|help"
-				exit 1
+				return 1
 				;;
 		esac
 
