@@ -34,7 +34,8 @@ function git.what_have_they_done() {
 
 		for file in ${files[@]} ; do
 			if file.is_text "$file" ; then
-				committers=( $(git.get_committers_of_file $file) ${committers[@]} )
+				committers=(
+				$(git.get_committers_of_file $file) ${committers[@]} )
 				processed_files+=1
 			fi
 		done
