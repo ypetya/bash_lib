@@ -37,3 +37,5 @@ function import() {
 
 init
 import -f is_defined
+
+export -f get_source_dir convert_package_to_filename is_variable is_defined
