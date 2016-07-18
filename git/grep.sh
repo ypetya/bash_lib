@@ -2,7 +2,6 @@
 
 import print.print git.get_committers_of_file
 
-# TODO use git grep it's much faster
 function git.grep() {
 	local file_name
 	local last_file_name='-1'
