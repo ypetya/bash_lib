@@ -9,7 +9,8 @@ function git.check_remote_updated() {
 	local local_sha1="$(git log -1 --pretty=format:"%H")"
 	debug "origin is : $local_sha1"
 
-	if [ "$remote_sha1" == "$local_sha1" ] ; then
+	if [ "$remote_sha1" == "$local_sha1" ] || [ "$remote_sha1" == "" ]
+	then
 		return 1
 	fi
 }
