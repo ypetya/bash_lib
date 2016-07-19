@@ -22,6 +22,9 @@ function user.create_configs() {
 		echo "chrome_exe=\"$(which chromium-browser)\"" >> ~/.user_config
 	fi
 
+	ask_user "jira_dashboard url?" jira_dashboard_url
+	echo "jira_dashboard_url=\"$jira_dashboard_url\"" >> ~/.user_config
+
 	ask_user "jira_url (including string ticket_id)?" jira_url
 	echo "jira_url=\"$jira_url\"" >> ~/.user_config
 
