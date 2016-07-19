@@ -1,6 +1,8 @@
 #!/bin/bash
 
 import user.load_config
+import print.error
+import string.is_empty
 
 function chrome() {
 	local mode="${1?param missing - mode}"
@@ -13,7 +15,12 @@ function chrome() {
 				mode="--disable-web-security"
 				;;
 			secure)
-				mode="--proxy-server=$http_proxy"
+				if string.is_empty "$http_proxy" ; then
+					error "No proxy defined in \$http_proxy"
+					return 1
+				else
+					mode="--proxy-server=$http_proxy"
+				fi
 				;;
 			incognito)
 				mode="--incognito"
