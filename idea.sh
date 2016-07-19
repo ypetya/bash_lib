@@ -29,10 +29,11 @@ function idea() {
 	eval $command
 }
 
+# TODO create a package!
 function idea.open_matching() {
 	local pattern="${1?param missing -pattern to find for edit}"
 	print 'Total matches '
-	print yellow "$(grep.blacklist -rl "$pattern" | wc -l )\n"
+	print yellow "$(grep.blacklist -rc "$pattern" )\n"
 	for file in $(grep.blacklist -rl "$pattern" ) ; do
 		if ask_user "Do you want to edit $file?" ; then
 			eval "$idea_exe $file"
