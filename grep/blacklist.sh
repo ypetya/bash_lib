@@ -17,3 +17,5 @@ export grep_blacklist="--exclude-dir='.git' \
 function grep.blacklist() {
 	eval grep $grep_blacklist "$@"
 }
+
+alias search='grep.blacklist -rn'
