@@ -5,7 +5,7 @@ import user.load_config
 # idea $(grep.blacklist -rn 'function.*Test' | cut -d ':' -f 1)
 # will open file matching function.*Test
 function idea.open() {
-	local mode="${1?param missing - filename}"
+	local mode
 	user.load_config
 	local command="$idea_exe "
 	while (( $# > 0 )) ; do
@@ -15,7 +15,7 @@ function idea.open() {
 				idea.open_matching "$2"
 				return 0
 				;;
-			help)
+			*|help)
 				echo "available commands : open_matching"
 				return 1
 				;;
