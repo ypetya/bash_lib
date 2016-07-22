@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.debug print.error
 import js.get_templates
 import file.is_file

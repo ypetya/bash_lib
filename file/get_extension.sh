@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.debug
 function file.get_extension() {
 	local file=${1? param missing - file}

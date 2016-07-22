@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import timer
 import git.log_stat
 import create_map

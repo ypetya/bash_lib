@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # keep or remove stash items, input needs to be an array of 'keep' or
 # 'remove' strings.

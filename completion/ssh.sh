@@ -1,6 +1,3 @@
-#!/bin/bash
-
-
 function completion.ssh() {
 	SSH_COMPLETE=()
 	if [ -f ~/.ssh/config ] ; then

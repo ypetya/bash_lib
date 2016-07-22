@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import grep.blacklist
 import ask_user
 import user.load_config

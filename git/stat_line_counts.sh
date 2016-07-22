@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import timer
 
 function git.stat_line_counts() {

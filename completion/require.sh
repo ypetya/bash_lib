@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import list
 
 function completion.require() {

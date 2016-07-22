@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import is_variable print.print print.error
 
 function print.info() {

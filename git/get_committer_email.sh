@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import is_variable
 
 function git.get_committer_email() {

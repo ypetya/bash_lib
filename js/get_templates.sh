@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.list_imports
 
 function js.get_templates() {

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import http.get
 # https://www.otpszepkartya.hu/fooldal/
 function http.szepkartya () {

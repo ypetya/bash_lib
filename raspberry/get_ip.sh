@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import http.get
 
 function raspberry.get_ip() {

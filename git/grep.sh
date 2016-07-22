@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print git.get_committers_of_file
 
 function git.grep() {

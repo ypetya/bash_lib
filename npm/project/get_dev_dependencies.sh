@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import npm.get_dev_dependencies
 import npm.project.get_artifact_name
 

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import first git.ensure_clean
 
 # Git help log

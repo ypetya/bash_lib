@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import java.keystore
 
 # this will import all files in directory

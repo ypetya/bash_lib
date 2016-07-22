@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function git.purge_reflog() {
 	rm -rf .git/refs/original/ && \
 	git reflog expire --all &&  \

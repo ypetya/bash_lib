@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.get_type
 
 function file.is_text() {

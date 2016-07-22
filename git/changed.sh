@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.get_changes_number
 
 function git.changed() {

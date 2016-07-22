@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import require_package
 
 if require_package xclip git ; then

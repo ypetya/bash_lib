@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print
 import require_package
 import timer

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import http.get xml.read string.decode_html_entity
 
 function http.read_444() {

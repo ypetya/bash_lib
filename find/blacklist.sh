@@ -1,5 +1,3 @@
-#!/bin/bash
-
 export find_blacklist=' -not \(
 		  -path '"'"'*/.git/*'"'"'
 		  -o -path '"'"'*/.m2/*'"'"'

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.walk_up
 
 function npm.project.get_artifact_name() {

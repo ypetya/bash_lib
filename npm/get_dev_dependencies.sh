@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import sed.remove_empty_lines
 
 function npm.get_dev_dependencies() {

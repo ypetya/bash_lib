@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import timer
 import git.check_remote_updated
 import git.pull

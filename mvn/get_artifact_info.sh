@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.is_file
 import xml.read
 import file.walk_up

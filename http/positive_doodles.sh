@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function http.positive_doodles() {
 	http.get http://positivedoodles.tumblr.com/rss |
 	while xml.read tag content ; do

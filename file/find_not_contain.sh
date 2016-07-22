@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import grep.blacklist
 
 function file.find_not_contain() {

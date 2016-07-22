@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # looks for a specific pattern in stash list to apply
 # if found, asks the user whether need to apply or not
 import print

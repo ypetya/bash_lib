@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import first http.get
 import raspberry.get_ip
 

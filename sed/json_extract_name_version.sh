@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function sed.json_extract_name_version() {
 	# 1. remove white spaces
 	# 2. add enters on every object start

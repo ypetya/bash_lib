@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.debug
 function file.get_directory() {
 	local file="${1? param missing - file}"

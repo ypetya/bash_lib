@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function string.match() {
 	local string="${1?param missing - string}"
 	local pattern="${2?param missing - pattern}"

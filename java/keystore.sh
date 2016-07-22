@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # shortcut to use keytool app
 # commands use help
 #

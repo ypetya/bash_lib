@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import user.load_config
 import http.get
 import string.to_lower

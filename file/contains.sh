@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function file.contains() {
 	local result=$(
 			grep -c "${1? param missing : string to find}" \

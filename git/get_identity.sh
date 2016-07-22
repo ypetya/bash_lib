@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 function git.get_identity() {
 	print yellow 'Author name:'

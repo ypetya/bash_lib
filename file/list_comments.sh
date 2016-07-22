@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import sed.extract_comments
 import file.get_extension
 import sed.extract

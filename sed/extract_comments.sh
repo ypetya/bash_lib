@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import create_map
 
 create_map sed_extract_comments

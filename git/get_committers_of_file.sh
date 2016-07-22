@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import sed.git_extract_commiter
 
 function git.get_committers_of_file() {

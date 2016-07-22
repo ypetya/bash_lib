@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print
 import timer
 import file.is_directory file.is_text

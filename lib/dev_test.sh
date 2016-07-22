@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print print.debug
 import first
 import timer
@@ -61,9 +59,9 @@ function lib.dev_test() {
 		fi
 		# 4. first line is shebang
 		fn_name="$( first 1 $file )"
-		if [ ! "$fn_name" == '#!/bin/bash' ] ; then
+		if [ "$fn_name" == '#!/bin/bash' ] ; then
 			debug "first line : $fn_name"
-			error "hashbang not valid in $file!"
+			error "hashbang in $file!"
 			is_error=1
 		fi
 	done

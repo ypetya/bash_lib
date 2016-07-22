@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function git.status() {
 	# untracked-files=no
 	git status -uno "$@"

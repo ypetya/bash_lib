@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.error print.debug
 
 function http.get() {

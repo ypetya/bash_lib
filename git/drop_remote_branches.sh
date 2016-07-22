@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 function git.drop_remote_branches() {
 	FORCE="$1"

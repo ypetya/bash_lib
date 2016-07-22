@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # decode html entities,
 # unicode entities coming from a html
 

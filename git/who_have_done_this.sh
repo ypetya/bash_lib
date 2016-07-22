@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.grep list_counts_desc timer
 import git.ensure_clean
 

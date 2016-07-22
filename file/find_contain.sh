@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import find.blacklist
 
 function file.find_contain() {

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.debug
 import find.blacklist
 

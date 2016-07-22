@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import npm.require_global
 
 # example call to use directory browse, CORS and open browser:

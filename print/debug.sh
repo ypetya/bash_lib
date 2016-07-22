@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 
 export DEBUG=${DEBUG:=1}

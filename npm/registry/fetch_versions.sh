@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import npm.registry.http_service_call
 import sed.json_extract_name_version
 

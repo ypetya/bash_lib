@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.get_committers_of_file
 
 function git.get_committer_of_line() {

@@ -1,6 +1,3 @@
-#!/bin/bash
-
-
 function completion.mvn()
 {
   local cur=${COMP_WORDS[COMP_CWORD]}

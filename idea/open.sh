@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import user.load_config
 # Example usage:
 # idea $(grep.blacklist -rn 'function.*Test' | cut -d ':' -f 1)

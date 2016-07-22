@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # bash4 : when there is a doublequote, string match takes place
 #
 function string.match_regex() {

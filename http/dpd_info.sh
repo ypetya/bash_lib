@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import http.get
 
 function http.dpd_info() {

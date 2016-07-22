@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.error
 import file.is_file
 import user.create_configs

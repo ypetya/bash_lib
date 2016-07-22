@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import sed.extract_imports
 import file.get_extension
 import sed.extract

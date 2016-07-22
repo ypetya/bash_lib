@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.tags first
 
 function git.get_last_tag() {

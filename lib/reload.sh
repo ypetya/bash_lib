@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import require
 import list
 import get_source_dir

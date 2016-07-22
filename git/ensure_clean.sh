@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.changed ask_user print.error
 
 function git.ensure_clean() {

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import require_package
 import print ask_user
 import git.stash_remove

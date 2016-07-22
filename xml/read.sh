@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import set_separator
 
 function xml.read () {

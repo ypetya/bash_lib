@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.find_first_in_parrent
 
 # print out the directory containing the given files up on the dir-tree

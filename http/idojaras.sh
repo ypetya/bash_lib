@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import first http.get
 
 function http.idojaras() {

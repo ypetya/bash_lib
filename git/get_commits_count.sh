@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import string.to_lower list_counts_desc
 
 function git.get_commits_count() {

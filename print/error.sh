@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 
 function print.error() {

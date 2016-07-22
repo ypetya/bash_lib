@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import ask_user
 # This function will change the commiter data on a repository
 function git.change_commiter() {

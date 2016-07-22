@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import npm.project.get_artifact_name
 import npm.get_artifact_version
 

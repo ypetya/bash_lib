@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function git.fetch() {
 	git fetch
 }

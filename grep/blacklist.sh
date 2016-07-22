@@ -1,5 +1,3 @@
-#!/bin/bash
-
 export grep_blacklist="--exclude-dir='.git' \
 --exclude-dir='dist' \
 --exclude-dir='coverage' \

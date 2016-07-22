@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import require_package
 
 function npm.require_global() {

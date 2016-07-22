@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import ask_user
 import print.print
 import file.find_first

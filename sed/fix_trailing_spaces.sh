@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function sed.fix_trailing_spaces() {
 	local file=${1? param missing - file}
 	# To print:

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function java.mvn_test() {
 	require_package mvn
 	local test_filter_patter="${1?param missing test_filter_pattern}"

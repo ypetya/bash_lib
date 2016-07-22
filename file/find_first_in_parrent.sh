@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.is_file_or_directory
 
 function file.find_first_in_parrent() {

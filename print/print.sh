@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.create_colors_map
 
 print.create_colors_map

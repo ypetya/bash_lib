@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function git.change_identity() {
   read -rp "New commiter and author name? " NEW_NAME
   GIT_AUTHOR_NAME="$NEW_NAME"

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function git.blame() {
 	local file_name=${1? param missing - file_name}
 	local line

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import git.changed
 
 function git.pull() {

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print
 import array_find
 import is_variable
