@@ -1,7 +1,6 @@
 #!/bin/bash
 
 import http.get
-import string.url_encode
 
 function http.egeszsegkonyha() {
 

@@ -6,7 +6,7 @@ function git.pull() {
   if [[ $# == 0 ]] ; then
 	if git.changed ; then
 		git stash
-		git pull
+		git pull --stat
 		git stash pop
 		return $?
 	fi

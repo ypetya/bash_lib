@@ -12,7 +12,8 @@ function idea.open() {
 		mode="$1"
 		case $mode in
 			open_matching)
-				idea.open_matching "$2"
+				shift
+				idea.open_matching "$@"
 				return 0
 				;;
 			*|help)
