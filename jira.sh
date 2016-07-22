@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import chrome
 import user.load_config
 import string

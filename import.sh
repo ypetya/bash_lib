@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # require import - which can be used by any local script
 function init() {
 	local DIR="${BASH_SOURCE%/*}"

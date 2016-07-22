@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print print.error
 import is_variable
 

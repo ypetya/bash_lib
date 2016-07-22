@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import file.list_import_vars
 import find.blacklist
 import print.print print.debug

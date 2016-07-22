@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 import string.match_regex
 

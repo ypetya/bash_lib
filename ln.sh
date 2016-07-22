@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 import is_mingw ask_user print
 

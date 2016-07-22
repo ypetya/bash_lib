@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import is_directory
 import find.blacklist
 

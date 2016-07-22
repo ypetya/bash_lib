@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import user.load_config
 import print.error
 import string.is_empty

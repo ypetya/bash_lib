@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.debug
 # Eg:
 # require create_week_days

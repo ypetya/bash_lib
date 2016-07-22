@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function ask_user() {
   local VAR
 

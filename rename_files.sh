@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 import find.blacklist
 import string.match

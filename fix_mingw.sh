@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function fix_mingw() {
 	export LS_COLORS='di=0;35'
 

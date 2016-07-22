@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import -f is_variable
 
 function is_defined() {

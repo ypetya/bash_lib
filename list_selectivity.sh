@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # calculates a list's selectivity in percentage
 #
 # selectivity_percentage = uniq_rows / total_rows  * 100

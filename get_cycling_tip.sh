@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import get_source_dir
 import get_random
 import list_get_row

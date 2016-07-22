@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # call this with zero, one or two parameters.
 # $1 = Artist,
 # $2 = track

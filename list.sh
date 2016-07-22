@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import convert_filename_to_package
 # list all the commands availabe for require
 function list() {

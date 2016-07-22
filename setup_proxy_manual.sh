@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import ask_user
 
 # setup proxy server variables for curl, nodejs and git

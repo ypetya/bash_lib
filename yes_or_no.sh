@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print
 
 # example usage :

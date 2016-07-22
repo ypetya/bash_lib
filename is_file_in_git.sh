@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import is_file
 
 function is_file_in_git() {

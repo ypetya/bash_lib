@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function where_is_function() {
 	local fn="${1? param missing - please pass a function name}"
 

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import print.print print.debug
 import file.list_imports
 import find.blacklist

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # https://en.wikipedia.org/wiki/Web_Proxy_Autodiscovery_Protocol
 # TODO this script should discover locations in order :
 # http://wpad.department.branch.example.com/wpad.dat

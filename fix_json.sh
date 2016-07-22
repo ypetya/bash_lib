@@ -1,5 +1,3 @@
-#!/bin/bash
-
 import ask_user
 # handy helper fn to fix json formatting:
 function fix_json() {

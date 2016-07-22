@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function ssh_setup_public_key() {
   if [ $# -eq 2 ] ; then
     cat ~/.ssh/id_rsa.pub | \

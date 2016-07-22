@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # change the separator, default = be '\n'!
 function set_separator() {
 	local NEW_SEPARATOR=$'\n'

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # This file is the initial entry point of the bash_lib
 # every script can individually source by using the require function
 # or loading this lib first

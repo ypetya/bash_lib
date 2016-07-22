@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # The following aliases (save & show) are for saving frequently used directories
 # You can save a directory using an abbreviation of your choosing.
 # Eg. save_dir ms

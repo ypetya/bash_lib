@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function create_week_days() {
 	create_map week_days
 
