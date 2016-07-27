@@ -14,7 +14,7 @@ function idea.open() {
 				idea.open_matching "$@"
 				return 0
 				;;
-			*|help)
+			help)
 				echo "available commands : open_matching"
 				return 1
 				;;
