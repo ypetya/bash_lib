@@ -1,5 +1,5 @@
 import grep.blacklist
-import ask_user
+import user.ask
 import user.load_config
 
 function idea.open_matching() {
@@ -12,7 +12,7 @@ function idea.open_matching() {
 	print yellow  "$(grep.blacklist -rl "$pattern" | wc -l)"
 	print ' files\n'
 	for file in $(grep.blacklist -rl "$pattern" ) ; do
-		if ask_user "Do you want to edit $file?" ; then
+		if user.ask "Do you want to edit $file?" ; then
 			eval "$idea_exe $file"
 		fi
 	done

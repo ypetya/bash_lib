@@ -4,7 +4,7 @@ import find.blacklist
 import timer
 
 # TODO use file.for_each
-function find_duplicate_imports() {
+function code.find_duplicate_imports() {
 	timer
 	local files=( $( find.blacklist . -type f ) )
 	local top_import
@@ -22,3 +22,5 @@ function find_duplicate_imports() {
 	done
 	timer_stop
 }
+
+alias find_duplicate_imports='code.find_duplicate_imports'

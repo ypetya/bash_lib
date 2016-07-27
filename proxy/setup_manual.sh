@@ -1,8 +1,8 @@
-import ask_user
+import user.ask
 
 # setup proxy server variables for curl, nodejs and git
 # ask user input, when no parameters defined
-function setup_proxy_manual() {
+function proxy.setup_manual() {
 	local host="$1"
 	local PROXY_PORT="$2"
 
@@ -11,11 +11,11 @@ function setup_proxy_manual() {
 	read -rs password
 
 	if [ -z "$host" ] ; then
-		ask_user "Please enter proxy host :" host
+		user.ask "Please enter proxy host :" host
 	fi
 
 	if [ -z "$PROXY_PORT" ] ; then
-		ask_user "Please enter proxy port :" PROXY_PORT
+		user.ask "Please enter proxy port :" PROXY_PORT
 	fi
 	# --- proxy
 	local PROXY_SERVER="http://$USER:$password@$host"

@@ -2,7 +2,7 @@ import print.print
 import find.blacklist
 import string.match
 
-function rename_files() {
+function file.rename() {
 	local change_from="${1? param missing - change_from}"
 	local change_to="${2? param missing - change_to}"
 	local files=$( find.blacklist . -type f )
@@ -14,12 +14,13 @@ function rename_files() {
 		fi
 	done
 
-	if ask_user 'Is this correct?' ; then
+	if user.ask 'Is this correct?' ; then
 		for f in $files ; do
 			if string.match $f $change_from ; then
 				mv -v "$f" "${f//$change_from/$change_to}"
 			fi
 		done
 	fi
-
 }
+
+alias rename_files='file.rename'

@@ -22,7 +22,7 @@ function git.stash_remove() {
 		print yellow 'You did not specify input, entering interactive mode.\n'
 		git stash list
 		local list
-		ask_user 'Please specify list-items to drop!
+		user.ask 'Please specify list-items to drop!
 [space separated ascending index numbers of the list]' list
 		#to_array
 		list=($list)

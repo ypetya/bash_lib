@@ -3,7 +3,7 @@ import git.log_stat
 import create_map
 import print.print print.debug
 import file.is_file
-import ask_user
+import user.ask
 # This function may give you back the hotspot of risks in the project
 #
 # it returns back statistics about files, analyzing the git history
@@ -21,7 +21,7 @@ import ask_user
 # TODO: it would be great to pass in sorting strategy filter
 function git.stat_change_counts() {
 	if [[ $# == 0 ]] ; then
-		if ! ask_user "Are you sure collecting stat without limits?\
+		if ! user.ask "Are you sure collecting stat without limits?\
  (Eg.: --since=2.weeks)"
 		then
 			return 1

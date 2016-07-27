@@ -12,7 +12,7 @@ function git.what_have_they_done() {
   if git.ensure_clean ; then
 	  timer
 	  local target="${1}"
-	  if is_file_in_git "$target" ; then
+	  if git.is_file_in_repo "$target" ; then
 		git.get_committers_of_file "$target" | list_counts_desc
 	  else
 		local committers=()

@@ -1,6 +1,6 @@
-import is_file
+import file.is_file
 
-function is_file_in_git() {
+function git.is_file_in_repo() {
 	if is_file "$1" ; then
 		if (( $(git ls -- "$1" | wc -l ) > 0 )) ; then
 			return 0

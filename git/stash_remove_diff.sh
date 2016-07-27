@@ -1,5 +1,5 @@
 import require_package
-import print ask_user
+import print user.ask
 import git.stash_remove
 
 function git.stash_remove_diff() {
@@ -16,7 +16,7 @@ function git.stash_remove_diff() {
 		git stash show $stash_item
 
 		print yellow " Do you want to keep this "
-		if ask_user "$stash_item ?" ; then
+		if user.ask "$stash_item ?" ; then
 			remove_list=(${remove_list[@]} keep)
 		else
 			remove_list=(${remove_list[@]} remove)

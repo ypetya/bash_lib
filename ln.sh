@@ -1,5 +1,5 @@
 import print.print
-import is_mingw ask_user print
+import is_mingw user.ask print
 
 if is_mingw ; then
 
@@ -14,7 +14,7 @@ if is_mingw ; then
 		if [ -d $3 ] ; then
 		  print yellow "Destenation directory already exists! command may fail!"
 		fi
-		if ask_user 'Continue?' ; then
+		if user.ask 'Continue?' ; then
 			$COMMAND
 			return $?
 		fi

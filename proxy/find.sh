@@ -11,10 +11,10 @@
 # $ systeminfo
 # http://superuser.com
 # /questions/346372/how-do-i-know-what-proxy-server-im-using
-import ask_user http.get
-function find_proxies() {
+import user.ask http.get
+function proxy.find() {
   local a_proxy_url
-  ask_user 'Please enter the HTTP auto proxy url to check? \
+  user.ask 'Please enter the HTTP auto proxy url to check? \
 (http://my-domain-auto-proxy-lookup/proxies.js) :' a_proxy_url
   PROXIES=( \
 	$( http.get $a_proxy_url | \

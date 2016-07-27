@@ -1,11 +1,9 @@
-import print.print print.debug
 import file.list_import_vars
 import find.blacklist
-import timer
+import print.print print.debug
 
 # TODO use file.for_each
-function find_unused_imports() {
-	timer
+function code.remove_unused_imports() {
 	local files=( $( find.blacklist . -type f ) )
 	local imports
 	local count
@@ -15,13 +13,14 @@ function find_unused_imports() {
 
 		for i in ${imports[@]} ; do
 			debug "$file import $i"
-			count=$( grep -c "${i}" "$file" )
+			count=$( sed -nr "/${i}/p" $file | wc -l )
 			debug " has $count occurences"
 			if (( $count == 1 )) ; then
 				print "$file has an unused import : "
-				print red "$i\n"
+				print red "$i"
+				print green " fixing.\n"
+				sed -ri "s/^import.*$i.*$//g" $file
 			fi
 		done
 	done
-	timer_stop
 }

@@ -1,11 +1,11 @@
-import ask_user
+import user.ask
 # This function will change the commiter data on a repository
 function git.change_commiter() {
-  ask_user "Old email to change? " OLD_EMAIL
+  user.ask "Old email to change? " OLD_EMAIL
   export OLD_EMAIL
-  ask_user "New commiter and author name? " NEW_NAME
+  user.ask "New commiter and author name? " NEW_NAME
   export NEW_NAME
-  ask_user "New email? " NEW_EMAIL
+  user.ask "New email? " NEW_EMAIL
   export NEW_EMAIL
 
   echo "Changing $OLD_EMAIL -> $NEW_EMAIL"

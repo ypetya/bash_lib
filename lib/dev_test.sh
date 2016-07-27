@@ -4,8 +4,8 @@ import timer
 import get_source_dir
 import file.contains
 import sed.fix_trailing_spaces
-import find_duplicate_imports
-import find_unused_imports
+import code.find_duplicate_imports
+import code.find_unused_imports
 import git.get_committer_email
 import git.get_changes_number
 import convert_filename_to_package
@@ -79,7 +79,7 @@ function lib.dev_test() {
 	print "Committer email : "
 	print yellow "$(git.get_committer_email)\n"
 
-	if (( $(git.get_changes_number) > 0 )) && ask_user \
+	if (( $(git.get_changes_number) > 0 )) && user.ask \
 		'Would you like to run git-gui?' ; then
 		git gui
 	fi

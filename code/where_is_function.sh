@@ -1,4 +1,4 @@
-function where_is_function() {
+function code.where_is_function() {
 	local fn="${1? param missing - please pass a function name}"
 
 	# Turn on extended shell debugging
@@ -10,3 +10,4 @@ function where_is_function() {
 	# Turn off extended shell debugging
 	shopt -u extdebug
 }
+alias where_is_function='code.where_is_function'

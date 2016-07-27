@@ -15,7 +15,7 @@ function git.stash_apply() {
 EOT
 
 	for stash in ${stashes[@]} ; do
-		if ask_user "Do you want to apply $stash ?" ; then
+		if user.ask "Do you want to apply $stash ?" ; then
 			git stash apply $stash
 		fi
 	done

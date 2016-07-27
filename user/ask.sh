@@ -1,4 +1,4 @@
-function ask_user() {
+function user.ask() {
   local VAR
 
   case $# in
@@ -17,3 +17,5 @@ function ask_user() {
 
   return 1
 }
+
+alias ask_user='user.ask'

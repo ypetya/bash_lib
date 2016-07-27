@@ -7,7 +7,7 @@ function java.import_certs() {
 		print " $file"
 	done
 	print "\n"
-	if ask_user 'Are you sure to import all of these?' ; then
+	if user.ask 'Are you sure to import all of these?' ; then
 		for file in * ; do
 			java.keystore import -f $file -alias $f
 		done
