@@ -23,7 +23,7 @@ function proxy.setup_manual() {
 	  echo "Setting up proxy server ${PROXY_SERVER##*@}:$PROXY_PORT"
 	  # curl
 	  export PROXY_ARGS="-x $PROXY_SERVER:$PROXY_PORT"
-	  # nodejs
+	  # unix
 	  export HTTP_PROXY="$PROXY_SERVER:$PROXY_PORT"
 	  export HTTPS_PROXY="$PROXY_SERVER:$PROXY_PORT"
 	  # git
