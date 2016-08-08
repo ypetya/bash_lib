@@ -1,13 +1,15 @@
 import print.print
+import git.drop_branch_origin
 function git.drop_remote_branches() {
-	FORCE="$1"
-	REMOTE_BRANCHES=$(git remote show origin | \
+	local FORCE="$1"
+	# TODO use git branch --list -r instead! or make prune as well
+	local REMOTE_BRANCHES=$(git remote show origin | \
 	 grep 'tracked' | \
 	 sed 's/tracked//g' | \
 	 tr -d ' ')
 
-	if [ "$FORCE" = "" ] ; then
-	  print "add a parameter to force deleting -"
+	if [[ ! "$FORCE" == 'force' ]] ; then
+	  print "first parameter should be 'force' for take action -"
 	  print " otherwise it will run bulk only\n"
 	fi
 
@@ -17,10 +19,7 @@ function git.drop_remote_branches() {
 		  print green "$branch - not deleting\n"
 		  ;;
 		*)
-		  print red "$branch - deleting\n"
-		  if [ "$FORCE" != "" ] ; then
-			git push origin :$branch
-		  fi
+			git.drop_branch_origin "$branch" "$FORCE"
 		  ;;
 	  esac
 	done
