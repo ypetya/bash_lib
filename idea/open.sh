@@ -1,10 +1,10 @@
-import user.load_config
+import user.config.load
 # Example usage:
 # idea $(grep.blacklist -rn 'function.*Test' | cut -d ':' -f 1)
 # will open file matching function.*Test
 function idea.open() {
 	local mode
-	user.load_config
+	user.config.load
 	local command="$idea_exe "
 	while (( $# > 0 )) ; do
 		mode="$1"

@@ -1,10 +1,10 @@
-import user.load_config
+import user.config.load
 import print.error
 import string.is_empty
 
 function chrome() {
 	local mode="${1?param missing - mode}"
-	user.load_config
+	user.config.load
 	local command="$chrome_exe "
 	while (( $# > 0 )) ; do
 		mode="$1"

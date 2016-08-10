@@ -4,7 +4,9 @@ import file.find_first
 import is_mingw
 import require_package
 
-function user.create_configs() {
+function user.config.creates() {
+	# TODO comments in the config file -> questions
+	# TODO store filename into a var
 
 	user.ask "Please enter service_endpoint" service_endpoint
 	echo "service_endpoint=\"$service_endpoint\"" > ~/.user_config

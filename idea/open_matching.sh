@@ -1,10 +1,10 @@
 import grep.blacklist
 import user.ask
-import user.load_config
+import user.config.load
 
 function idea.open_matching() {
 	local pattern="${1?param missing -pattern to find for edit}"
-	user.load_config
+	user.config.load
 	search "$pattern"
 	print 'Total matches '
 	print yellow "$(grep.blacklist -r "$pattern" | wc -l)"
