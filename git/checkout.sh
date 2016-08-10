@@ -11,6 +11,7 @@ function git.checkout() {
 	fi
 	print 'git.checkout works on remotes/origin only!\n'
 	print yellow 'Please select which branch to checkout?\n'
+	# TODO do not list remotes where a local branch exists!
 	select matching in $( git branch \
 		--list -a --no-color \
 		--sort='-creatordate' \
@@ -18,7 +19,8 @@ function git.checkout() {
 	do
 		if [ "${matching:0:15}" == 'remotes/origin/' ] ; then
 			print yellow 'Creating local branch for remote branch...\n'
-			git checkout $matching -b "${matching:15}" --track
+			git checkout $matching -b "${matching:15}" --track \
+				--set-upstream-to "${matching:8}"
 		else
 			print yellow 'Checking out local branch...\n'
 			git checkout $matching

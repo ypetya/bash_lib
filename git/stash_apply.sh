@@ -5,6 +5,7 @@ function git.stash_apply() {
 	local pattern="${1? param missing - pattern to match stash name}"
 	local line stash
 	local stashes=()
+
 	while read -r line ; do
 		stash="$( echo $line | cut -d ':' -f 1)"
 		print yellow "Found stash: "
