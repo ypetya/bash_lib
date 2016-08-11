@@ -27,10 +27,12 @@ function git.checkout() {
 			git pull --stat
 		fi
 
-		if [[ changed == 1 ]] ; then
+		if [[ $changed == 1 ]] ; then
 			git stash pop
 		fi
 		set +f
 		return 0
 	done
 }
+
+alias git.co='git.checkout'

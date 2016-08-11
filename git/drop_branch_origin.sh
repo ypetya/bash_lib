@@ -1,6 +1,6 @@
 import user.ask
 
-function git.drop_branch_origin() {
+function git.drop_remote_branch_at_origin() {
 	local branch="${1? param missing - branch}"
 	local FORCE="$2"
 	if [ "$FORCE" == 'force' ] ||

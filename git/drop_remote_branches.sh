@@ -1,5 +1,5 @@
 import print.print
-import git.drop_branch_origin
+import git.drop_remote_branch_at_origin
 function git.drop_remote_branches() {
 	local FORCE="$1"
 	# TODO use git branch --list -r instead! or make prune as well
@@ -19,7 +19,7 @@ function git.drop_remote_branches() {
 		  print green "$branch - not deleting\n"
 		  ;;
 		*)
-			git.drop_branch_origin "$branch" "$FORCE"
+			git.drop_remote_branch_at_origin "$branch" "$FORCE"
 		  ;;
 	  esac
 	done
