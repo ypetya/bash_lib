@@ -1,38 +1,30 @@
+import git.get_matching_branches
+import git.checkout_branch
+import print.print
+
 function git.checkout() {
 	set -f
-	local branch_pattern="*${1?param missing - branch_pattern}*"
+	local branch_pattern="${1?param missing - branch_pattern}"
 	local matching
-	local changed=0
-	if git.changed &&
-		ask_user 'You have local changes. Do you want to continue?'
-	then
-		changed=1
-		git stash
-	fi
+
 	print 'git.checkout works on remotes/origin only!\n'
 	print yellow 'Please select which branch to checkout?\n'
 	# TODO do not list remotes where a local branch exists!
-	select matching in $( git branch \
-		--list -a --no-color \
-		--sort='-creatordate' \
-		"$branch_pattern" | tr -d '* ' )
-	do
-		if [ "${matching:0:15}" == 'remotes/origin/' ] ; then
-			print yellow 'Creating local branch for remote branch...\n'
-			git checkout $matching -b "${matching:15}" --track \
-				--set-upstream-to "${matching:8}"
-		else
-			print yellow 'Checking out local branch...\n'
-			git checkout $matching
-			git pull --stat
-		fi
+	local branches=( $(git.get_matching_branches "$branch_pattern") )
+	if (( ${#branches[@]} == 1 )) ; then
+		echo "Checking out ${branches[0]}.."
+		git.checkout_branch "${branches[0]}"
+	else
+		echo "There are ${#branches[@]} matching branches:"
+		select matching in ${branches[@]}
+		do
+			git.checkout_branch "$matching"
+			break
+		done
+	fi
 
-		if [[ $changed == 1 ]] ; then
-			git stash pop
-		fi
-		set +f
-		return 0
-	done
+	set +f
+	return 0
 }
 
 alias git.co='git.checkout'
