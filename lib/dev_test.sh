@@ -3,12 +3,12 @@ import first
 import timer
 import get_source_dir
 import file.contains
-import sed.fix_trailing_spaces
 import code.find_duplicate_imports
 import code.find_unused_imports
 import git.get_committer_email
 import git.get_changes_number
 import convert_filename_to_package
+import file.fix_trailing_spaces
 
 # TODO : explode this fn, as it got too large
 # This helper is about to ensure rules in this library
@@ -52,11 +52,7 @@ function lib.dev_test() {
 			is_error=1
 		fi
 		# 3. no trailing spaces
-		if file.contains "\s$" $file ; then
-			print yellow "$file contains trailing space:"
-			sed.fix_trailing_spaces $file
-			print green "fixing.\n"
-		fi
+		file.fix_trailing_spaces "$file"
 		# 4. first line is shebang
 		fn_name="$( first 1 $file )"
 		if [ "$fn_name" == '#!/bin/bash' ] ; then
