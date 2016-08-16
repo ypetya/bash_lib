@@ -1,3 +1,3 @@
 function git.get_changes_number() {
-	git status --porcelain -uno | wc -l
+	git status --porcelain | wc -l
 }
