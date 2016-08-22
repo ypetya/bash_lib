@@ -10,6 +10,8 @@ function git.checkout_branch() {
 	then
 		changed=1
 		git stash
+	else
+		return 1
 	fi
 	if [ "${matching:0:15}" == 'remotes/origin/' ] ; then
 		print yellow 'Creating local branch for remote branch...\n'

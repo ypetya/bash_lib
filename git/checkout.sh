@@ -10,6 +10,7 @@ function git.checkout() {
 	print 'git.checkout works on remotes/origin only!\n'
 	print yellow 'Please select which branch to checkout?\n'
 	# TODO do not list remotes where a local branch exists!
+	# TODO try to find tags, where no local nor remote branch exists
 	local branches=( $(git.get_matching_branches "$branch_pattern") )
 	if (( ${#branches[@]} == 1 )) ; then
 		echo "Checking out ${branches[0]}.."
