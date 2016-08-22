@@ -1,6 +1,5 @@
 import print.print
-# TODO use branch_list
-#import git.branch_list
+import git.branch_list
 
 function git.drop_branches() {
 	local FORCE="$1"
@@ -10,7 +9,7 @@ function git.drop_branches() {
 	  print " otherwise it will run bulk only\n"
 	fi
 
-	for branch in $(git branch --list | tr -d ' *' ) ; do
+	for branch in $( git.branch_list local ) ; do
 		case $branch in
 			master|develop)
 				print green "$branch\n"
