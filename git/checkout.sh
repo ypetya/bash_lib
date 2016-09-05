@@ -3,13 +3,12 @@ import git.checkout_branch
 import print.print
 
 function git.checkout() {
-	set -f
 	local branch_pattern="${1?param missing - branch_pattern}"
 	local matching
 
 	print 'git.checkout works on remotes/origin only!\n'
 	print yellow 'Please select which branch to checkout?\n'
-	# TODO do not list remotes where a local branch exists!
+	# TODO do not list remotes where exactly one local branch exists!
 	# TODO try to find tags, where no local nor remote branch exists
 	local branches=( $(git.branch_list "$branch_pattern") )
 	if (( ${#branches[@]} == 1 )) ; then
@@ -24,7 +23,6 @@ function git.checkout() {
 		done
 	fi
 
-	set +f
 	return 0
 }
 
