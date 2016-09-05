@@ -8,8 +8,8 @@ function git.checkout_branch() {
 	if git.changed &&
 		ask_user 'You have local changes. Do you want to continue?'
 	then
-		changed=1
-		git stash
+		# if stash contained changes, set changed=1
+		[ "$(git stash | wc -l )" == "1" ] || changed=1
 	else
 		return 1
 	fi
