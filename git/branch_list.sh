@@ -5,21 +5,36 @@
 # -a shows both remotes and local
 # --sort=key : see git help git-for-each-ref for keys
 # <pattern> is a shell pattern
+#
+# Usage
+# =====
+#
+# first parameter: optional - local/all/remote
+# second parameter: optional - pattern
+import print.debug
 function git.branch_list() {
+	set -f
 	local interactive="${1? param missing - local/all/remote or pattern}"
-	case $interactive in
-		local)
-			git branch --list --sort='-creatordate' | tr -d '* '
-			;;
-		all)
-			git branch --list -a --sort='-creatordate' | tr -d '* '
-			;;
-		remote)
-			git branch --list -r --sort='-creatordate' | tr -d '* '
-			;;
-		*)
-			local pattern="*${1}*"
-			git branch --list -a --sort='-creatordate' $pattern | tr -d '* '
-			;;
-	esac
+	local command="git branch --list --sort='-creatordate' "
+	while (( "$#" )); do
+		interactive="$1"
+		case $interactive in
+			local)
+				;;
+			all)
+				command="$command -a "
+				;;
+			remote)
+				command="$command -r "
+				;;
+			*)
+				local pattern="*${1}*"
+				command="$command $pattern "
+				;;
+		esac
+		shift
+	done
+	debug $command
+	eval $command | tr -d '* '
+	set +f
 }
