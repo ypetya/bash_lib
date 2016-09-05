@@ -24,6 +24,10 @@ function git.branch_list() {
 			all)
 				command="$command -a "
 				;;
+			tag)
+				# TODO fix ordering at list tags
+				command="git tag --list "
+				;;
 			remote)
 				command="$command -r "
 				;;
