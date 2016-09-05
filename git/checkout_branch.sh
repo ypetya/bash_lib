@@ -1,24 +1,25 @@
-import git.changed
+import git.ensure_clean
 import user.ask
 import print.print
 
 function git.checkout_branch() {
 	local matching="${1? param missing - branch}"
-	local changed=0
-	if git.changed &&
-		ask_user 'You have local changes. Do you want to continue?'
-	then
-		# if stash contained changes, set changed=1
+	local changed=0 local_branch
+	if git.ensure_clean ; then
+		# TODO fn instead; if stash contained changes, set changed=1
 		[ "$(git stash | wc -l )" == "1" ] || changed=1
 	else
 		return 1
 	fi
-	if [ "${matching:0:15}" == 'remotes/origin/' ] ; then
-		print yellow 'Creating local branch for remote branch...\n'
-		git checkout $matching -b "${matching:15}" --track
-		#	--set-upstream-to="${matching:8}"
+
+	if [ "${matching:0:7}" == 'origin/' ] ; then
+		local_branch="${matching:7}"
+		print yellow 'Creating local tracking branch for remote branch : '
+		print green "$local_branch\n"
+
+		git checkout $matching -b "$local_branch" --track
 	else
-		print yellow 'Checking out local branch...\n'
+		print yellow "Checking out local branch or tag : $matching\n"
 		git checkout $matching
 		git pull --stat
 	fi
