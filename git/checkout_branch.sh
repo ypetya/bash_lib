@@ -3,24 +3,30 @@ import user.ask
 import print.print
 
 function git.checkout_branch() {
-	local matching="${1? param missing - branch}"
-	local changed=0 local_branch
-	if git.ensure_clean ; then
-		# TODO fn instead; if stash contained changes, set changed=1
-		[ "$(git stash | wc -l )" == "1" ] || changed=1
-	else
-		return 1
-	fi
+	local branch_name="${1? param missing - branch_name}"
+	local ask="$2"
+	local changed=0
+	local local_branch
 
-	if [ "${matching:0:7}" == 'origin/' ] ; then
-		local_branch="${matching:7}"
+	print yellow "Going to check out branch or tag : "
+	print green "$branch_name\n"
+	if [ "$ask" == "ask" ] ; then
+		if ! user.ask 'Do you proceed?' ; then
+			return 1
+		fi
+	fi
+	# auto stashing
+	[ "$(git stash | wc -l )" == "1" ] || changed=1
+
+	if [ "${branch_name:0:7}" == 'origin/' ] ; then
+		local_branch="${branch_name:7}"
 		print yellow 'Creating local tracking branch for remote branch : '
 		print green "$local_branch\n"
 
-		git checkout $matching -b "$local_branch" --track
+		git checkout $branch_name -b "$local_branch" --track
 	else
-		print yellow "Checking out local branch or tag : $matching\n"
-		git checkout $matching
+
+		git checkout $branch_name
 		git pull --stat
 	fi
 

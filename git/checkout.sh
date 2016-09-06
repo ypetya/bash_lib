@@ -22,8 +22,8 @@ function git.checkout.from() {
 
 	local branches=( $(git.branch_list "$source" "$branch_pattern") )
 	if (( ${#branches[@]} == 1 )) ; then
-		echo "Checking out ${branches[0]}.."
-		git.checkout_branch "${branches[0]}"
+		echo "Going to checkout: ${branches[0]}"
+		git.checkout_branch "${branches[0]}" ask
 		return 0
 	elif (( ${#branches[@]} > 1 )) ; then
 		echo "There are ${#branches[@]} matching branches:"
