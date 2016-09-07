@@ -13,9 +13,7 @@ function file.find_by_type() {
 		file_type="$(file.get_type $file)"
 		debug "$file : $file_type"
 		if string.match_regex "$file_type" "$look_for" ; then
-			print "$file"
-			print " : "
-			print yellow "$file_type\n"
+			print "$file:$file_type\n"
 		fi
 	done
 }
