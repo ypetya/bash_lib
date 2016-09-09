@@ -41,6 +41,7 @@ function user.config.edit.edit() {
 
 	user.config.edit.print_kv "$key" "$value"
 
+	echo
 	user.ask 'New value (without quotes)?' value
 
 	sed -ie "s|$key=.*|$key=\"$value\"|" ~/.user_config
