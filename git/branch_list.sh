@@ -12,6 +12,7 @@
 # first parameter: optional - local/all/remote
 # second parameter: optional - pattern
 import print.debug
+import git.fetch
 function git.branch_list() {
 	set -f
 	local interactive="${1? param missing - local/all/remote or pattern}"
@@ -22,6 +23,7 @@ function git.branch_list() {
 			local)
 				;;
 			all)
+				git.fetch
 				command="$command -a "
 				;;
 			tag)
@@ -29,6 +31,7 @@ function git.branch_list() {
 				command="git tag --list "
 				;;
 			remote)
+				git.fetch
 				command="$command -r "
 				;;
 			*)
