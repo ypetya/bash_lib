@@ -10,7 +10,7 @@ function chrome() {
 		mode="$1"
 		case $mode in
 			dev)
-				mode="--disable-web-security"
+				mode="--disable-web-security --user-data-dir"
 				;;
 			secure)
 				if string.is_empty "$http_proxy" ; then
