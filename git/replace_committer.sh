@@ -1,6 +1,6 @@
 import user.ask
 # This function will change the commiter data on a repository
-function git.change_commiter() {
+function git.replace_commiter() {
   user.ask "Old email to change? " OLD_EMAIL
   export OLD_EMAIL
   user.ask "New commiter and author name? " NEW_NAME
@@ -10,7 +10,10 @@ function git.change_commiter() {
 
   echo "Changing $OLD_EMAIL -> $NEW_EMAIL"
 
-  git filter-branch --commit-filter '
+  # -f : force git to update ref-log backup
+  # an alternative way would be
+  # git update-ref -d refs/original/refs/heads/master
+  git filter-branch -f --commit-filter '
     if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]; then
             GIT_COMMITTER_NAME="$NEW_NAME";
             GIT_AUTHOR_NAME="$NEW_NAME";
