@@ -16,7 +16,7 @@ function save_dir() {
 }
 
 function load_dirs() {
-	source ~/.dirs
+	[ -f ~/.dirs ] && source ~/.dirs
 }
 
 function show_dirs() {
