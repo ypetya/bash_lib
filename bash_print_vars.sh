@@ -7,20 +7,28 @@ function bash_print_vars() {
     local bash_vars=(
 BASH
 # The full pathname used to execute the current instance of Bash.
+
 BASHOPTS
 # A colon-separated list of enabled shell options. Each word in the list is a valid argument for the -s option to the shopt builtin command (see The Shopt Builtin). The options appearing in BASHOPTS are those reported as ‘on’ by ‘shopt’. If this variable is in the environment when Bash starts up, each shell option in the list will be enabled before reading any startup files. This variable is readonly.
+
 BASHPID
 # Expands to the process ID of the current Bash process. This differs from $$ under certain circumstances, such as subshells that do not require Bash to be re-initialized.
-BASH_ALIASES
+
+{BASH_ALIASES[@]}
 # An associative array variable whose members correspond to the internal list of aliases as maintained by the alias builtin. (see Bourne Shell Builtins). Elements added to this array appear in the alias list; however, unsetting array elements currently does not cause aliases to be removed from the alias list. If BASH_ALIASES is unset, it loses its special properties, even if it is subsequently reset.
-BASH_ARGC
+
+{BASH_ARGC[@]}
 # An array variable whose values are the number of parameters in each frame of the current bash execution call stack. The number of parameters to the current subroutine (shell function or script executed with . or source) is at the top of the stack. When a subroutine is executed, the number of parameters passed is pushed onto BASH_ARGC. The shell sets BASH_ARGC only when in extended debugging mode (see The Shopt Builtin for a description of the extdebug option to the shopt builtin).
-BASH_ARGV
+
+{BASH_ARGV[@]}
 # An array variable containing all of the parameters in the current bash execution call stack. The final parameter of the last subroutine call is at the top of the stack; the first parameter of the initial call is at the bottom. When a subroutine is executed, the parameters supplied are pushed onto BASH_ARGV. The shell sets BASH_ARGV only when in extended debugging mode (see The Shopt Builtin for a description of the extdebug option to the shopt builtin).
-BASH_CMDS
+
+{BASH_CMDS[@]}
 # An associative array variable whose members correspond to the internal hash table of commands as maintained by the hash builtin (see Bourne Shell Builtins). Elements added to this array appear in the hash table; however, unsetting array elements currently does not cause command names to be removed from the hash table. If BASH_CMDS is unset, it loses its special properties, even if it is subsequently reset.
+
 BASH_COMMAND
 # The command currently being executed or about to be executed, unless the shell is executing a command as the result of a trap, in which case it is the command executing at the time of the trap.
+
 BASH_COMPAT
 # The value is used to set the shell’s compatibility level. See The Shopt Builtin, for a description of the various compatibility levels and their effects. The value may be a decimal number (e.g., 4.2) or an integer (e.g., 42) corresponding to the desired compatibility level. If BASH_COMPAT is unset or set to the empty string, the compatibility level is set to the default for the current version. If BASH_COMPAT is set to a value that is not one of the valid compatibility levels, the shell prints an error message and sets the compatibility level to the default for the current version. The valid compatibility levels correspond to the compatibility options accepted by the shopt builtin described above (for example, compat42 means that 4.2 and 42 are valid values). The current version is also a valid value.
 
@@ -48,22 +56,22 @@ BASH_SUBSHELL
 BASH_VERSINFO
 # A readonly array variable (see Arrays) whose members hold version information for this instance of Bash. The values assigned to the array members are as follows:
 
-BASH_VERSINFO[0]
+{BASH_VERSINFO[0]}
 # The major version number (the release).
 
-BASH_VERSINFO[1]
+{BASH_VERSINFO[1]}
 # The minor version number (the version).
 
-BASH_VERSINFO[2]
+{BASH_VERSINFO[2]}
 # The patch level.
 
-BASH_VERSINFO[3]
+{BASH_VERSINFO[3]}
 # The build version.
 
-BASH_VERSINFO[4]
+{BASH_VERSINFO[4]}
 # The release status (e.g., beta1).
 
-BASH_VERSINFO[5]
+{BASH_VERSINFO[5]}
 # The value of MACHTYPE.
 
 BASH_VERSION
