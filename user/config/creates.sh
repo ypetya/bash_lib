@@ -22,11 +22,14 @@ function user.config.creates() {
 		echo "chrome_exe=\"$(which chromium-browser)\"" >> ~/.user_config
 	fi
 
-	user.ask "jira_dashboard url?" jira_dashboard_url
+	user.ask "jira_dashboard url : url to open for command jira, without parameters?" jira_dashboard_url
 	echo "jira_dashboard_url=\"$jira_dashboard_url\"" >> ~/.user_config
 
-	user.ask "jira_url (including string ticket_id)?" jira_url
+	user.ask "jira_url (including string ticket_id) : typical setup is : https://<jira_instance>/browse/ticket_id ?" jira_url
 	echo "jira_url=\"$jira_url\"" >> ~/.user_config
+
+	user.ask "jira_project (autocomplete jira number with <project prefix>-1234) ?" jira_project
+	echo "jira_project=\"$jira_project\"" >> ~/.user_config
 
 	user.ask "intellij idea unix-path?" idea_exe
 	echo "idea_exe=\"$idea_exe\"" >> ~/.user_config
