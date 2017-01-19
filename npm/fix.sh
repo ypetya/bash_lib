@@ -2,7 +2,8 @@ import require_package
 import print.print
 
 function npm.fix() {
-  require_package npm
+  # nvm : node version manager
+  require_package nvm
   npm config ls -l | grep $USER
   print yellow 'Should point to a local dir:\n'
   npm config get cache

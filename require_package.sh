@@ -1,4 +1,5 @@
 import print.debug
+import is_defined
 import install_package
 # check for existing tools like the following:
 #
@@ -6,10 +7,10 @@ import install_package
 #
 function require_package() {
   while (( $#  > 0 )) ; do
-	if ! type -t $1 >& /dev/null ; then
+	if ! is_defined "$1" ; then
   	  debug "$1 is not installed!"
 	  install_package "$1" || return 1
-    fi
+	fi
 	shift
   done
 }
