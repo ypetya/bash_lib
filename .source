@@ -1,5 +1,6 @@
 
 function init() {
+	# local DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 	local DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 	source "$DIR/require.sh"
