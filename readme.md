@@ -86,8 +86,3 @@ More
 * http://wiki.bash-hackers.org/start
 * http://samrowe.com/wordpress/advancing-in-the-bash-shell/
 * https://google.github.io/styleguide/shell.xml
-
-TODO
-====
-
-* npm run script completion
