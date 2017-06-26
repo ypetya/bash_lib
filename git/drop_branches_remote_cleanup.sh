@@ -1,7 +1,8 @@
 import print.print
 import git.drop_remote_branch_at_origin
 import git.branch_list
-function git.drop_remote_branches() {
+
+function git.drop_branches_remote_cleanup() {
 	local FORCE="$1"
 	local REMOTE_BRANCHES=$(git.branch_list remote |
 	sed -r s,origin/,,g )
