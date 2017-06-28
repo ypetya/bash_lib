@@ -8,7 +8,6 @@ function convert_filename_to_package() {
 		file="${file//\//.}"
 		echo "$file"
 	else
-		sed 's|'$DIR'/||;s|.sh$||' | \
-		sed -r "s|/|.|g"
+		sed 's|'$DIR'/||;s|.sh$||;s|/|.|g'
 	fi
 }
