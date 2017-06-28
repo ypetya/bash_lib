@@ -16,7 +16,7 @@ function git.reset_files() {
   fi
 
   set_separator
-  
+
   local changes=( "$( git status --porcelain )" )
   local mod file
 
@@ -24,7 +24,7 @@ function git.reset_files() {
     change=$( echo $change | sed -r "s/^[[:space:]]+//" )
     mod=$( echo "$change" | cut -d ' ' -f 1 )
     file=$( echo "$change" | cut -d ' ' -f 2 )
-  
+
     #print.vars change mod file
 
     if git.reset_files.match "$file" "$@" ; then

@@ -27,8 +27,7 @@ function git.branch_list() {
 				command="$command -a "
 				;;
 			tag)
-				# TODO fix ordering at list tags
-				command="git tag --list "
+				command="git tag --list --sort='version:refname'"
 				;;
 			remote)
 				git.fetch

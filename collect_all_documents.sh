@@ -2,7 +2,7 @@ import file.is_directory
 import find.blacklist
 import set_separator
 
-# Example usage: 
+# Example usage:
 #
 # 1. create a directory where you want to run the script
 # 2. call the script with the params of the resource target dir, which will be scanned through for docx,mobi,doc,pdf
@@ -21,7 +21,7 @@ function collect_all_documents() {
 		-iname '\*.docx' \
 		-o -iname '\*.mobi' \
 		-o -iname '\*.doc' \
-		-o -iname '\*.pdf' 
+		-o -iname '\*.pdf'
 		) )
 
 		echo "${#files[@]} documents found."

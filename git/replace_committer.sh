@@ -1,6 +1,6 @@
 import user.ask
 # This function will change the commiter data on a repository
-function git.replace_commiter() {
+function git.replace_committer() {
   user.ask "Old email to change? " OLD_EMAIL
   export OLD_EMAIL
   user.ask "New commiter and author name? " NEW_NAME

@@ -5,8 +5,8 @@ import is_mingw
 import require_package
 
 function user.config.creates() {
-	# TODO comments in the config file -> questions
-	# TODO store filename into a var
+	# TODO automate question's source from comments in the config file
+	# TODO store filename into a template variables
 
 	user.ask "Please enter service_endpoint" service_endpoint
 	echo "service_endpoint=\"$service_endpoint\"" > ~/.user_config
