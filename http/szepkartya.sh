@@ -8,7 +8,7 @@ function http.szepkartya () {
 do/bankkartyaEgyenlegLekerdezesCafeteriaSZEP" \
 	-d "muvelet=login&azonosito=$card_num&telekod=${card_num:7:10}" | \
 	sed -n '48p' | \
-	sed -r s/[^0-9]//g
+	sed 's/[^0-9]//g'
 }
 
 alias get_szepkartya_egyenleg='http.szepkartya'
