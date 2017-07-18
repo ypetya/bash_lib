@@ -6,7 +6,9 @@ function http.get() {
 	# set default transfer timeout to 10 seconds
 	local HTTP_TRANSFER_TIMEOUT_IN_SEC=${HTTP_TRANSFER_TIMEOUT_IN_SEC:-10}
 
-	debug "curl -sL $@ "
+	debug "curl -sL -w "%{http_code}" \
+		--connect-timeout $HTTP_CONNECT_TIMEOUT_IN_SEC \
+		-m $HTTP_TRANSFER_TIMEOUT_IN_SEC "$@""
 	# -s is for silent mode ( not to output timings)
 	# -L is for follow redirects
 	# finally we dont want to output errors
