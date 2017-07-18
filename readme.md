@@ -18,7 +18,7 @@ Use the library
 Clone and source it:
 
 ```
-git clone https://kisp@bitbucket.org/kisp/bash_lib.git
+git clone http://bitbucket.org/kisp/bash_lib.git
 echo "source ~/bash_lib/.source" >> .bashrc
 ```
 

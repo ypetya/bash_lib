@@ -1,4 +1,8 @@
-#set -x
+
+# to list a file's commits
+# git log --follow --stat -- <file>
+
+# set -x
 # Shows you the largest objects in your repo's pack file.
 # @see http://stubbisms.wordpress.com/2009/07/10/\
 # git-script-to-show-largest-pack-objects-and-trim-your-waist-line/

@@ -14,7 +14,7 @@
 
 import print
 
-function git.stash_remove() {
+function git.stash.remove() {
 	local remove_list=($@)
 	local interactive=0
 	if (( ${#remove_list} == 0 )) ; then

@@ -1,8 +1,8 @@
 import require_package
 import print user.ask
-import git.stash_remove
+import git.stash.remove
 
-function git.stash_remove_diff() {
+function git.stash.remove_diff() {
 	require_package git
 	print yellow "Your stash contains:\n"
 	git stash list

@@ -1,7 +1,8 @@
 # looks for a specific pattern in stash list to apply
 # if found, asks the user whether need to apply or not
 import print
-function git.stash_apply() {
+
+function git.stash.apply() {
 	local pattern="${1? param missing - pattern to match stash name}"
 	local line stash
 	local stashes=()

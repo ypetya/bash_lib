@@ -5,6 +5,7 @@ export grep_blacklist="--exclude-dir='.git' \
 --exclude-dir='.idea' \
 --exclude-dir='.sass-cache' \
 --exclude-dir='node_modules' \
+--exclude-dir='__bundled_tests__' \
 --exclude='*min.js' \
 --exclude='optimised-modules.json' \
 --exclude='*min.css' \
