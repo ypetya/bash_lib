@@ -1,7 +1,6 @@
-import git.branch_list
-import git.checkout_branch
 import print.print
 import git.fetch
+import git.checkout.from
 
 function git.checkout() {
 	local branch_pattern="${1?param missing - branch_pattern}"

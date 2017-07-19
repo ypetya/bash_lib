@@ -1,5 +1,5 @@
 import print.print
-import git.checkout_branch
+import git.checkout.branch
 import git.branch_list
 
 function git.checkout.from() {
@@ -9,7 +9,7 @@ function git.checkout.from() {
 	local branches=( $(git.branch_list "$source" "$branch_pattern") )
 	if (( ${#branches[@]} == 1 )) ; then
 		echo " * found: ${branches[0]}"
-		git.checkout_branch "${branches[0]}" ask
+		git.checkout.branch "${branches[0]}" ask
 		return 0
 	elif (( ${#branches[@]} > 1 )) ; then
 		echo "There are ${#branches[@]} matching branches:"
@@ -18,7 +18,7 @@ function git.checkout.from() {
 			if [ "$matching" == "none" ] ; then
 				return 1
 			fi
-			git.checkout_branch "$matching"
+			git.checkout.branch "$matching"
 			return 0
 		done
 	fi

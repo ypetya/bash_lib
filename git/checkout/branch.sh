@@ -1,7 +1,7 @@
 import user.ask
 import print.print
 
-function git.checkout_branch() {
+function git.checkout.branch() {
 	local branch_name="${1? param missing - branch_name}"
 	local ask="$2"
 	local changed=0
