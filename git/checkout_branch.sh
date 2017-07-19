@@ -27,7 +27,6 @@ function git.checkout_branch() {
 		# set upstream
 		git branch --set-upstream-to=$branch_name $local_branch
 	else
-
 		git checkout $branch_name
 		git pull --stat
 	fi

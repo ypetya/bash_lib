@@ -1,4 +1,5 @@
 import print.debug
+
 function git.check_remote_updated() {
 	local remote_url="${1? param missing - remote_url}"
 

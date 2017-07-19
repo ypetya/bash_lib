@@ -1,11 +1,11 @@
 import print.print
 import user.ask_user
+import git.is_local_branch
 
 function git.drop_local_branch() {
     local branch="${1? param missing - branch}"
 
-    if [ ! "$(git br --list "$branch" | wc -l)" = "1" ] ; then
-        print red 'No such local branch!\n'
+    if ! git.is_local_branch "$branch" ; then
         return 1
     fi
 
