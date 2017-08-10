@@ -8,7 +8,7 @@ function git.push() {
 	local git_output="$(git push $@ 2>&1 >/dev/null)"
 	if [ "$?" == "0" ] ; then
 		print green "Done.\n"
-		local stash_url="$(echo "$git_output" | sed -r "s/.*(http[^\s]+).*$/\1/" )"
+		local stash_url="$(echo "$git_output" | grep http | sed -re 's/^remote:.*(http[^ ]+)$/\1/' )"
 		if (( ${#stash_url} >0 )) ; then
 			echo "$stash_url"
 			if user.ask 'Would you like to open in browser?'
