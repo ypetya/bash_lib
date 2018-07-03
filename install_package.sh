@@ -1,7 +1,7 @@
 import print.debug
 import is_linux user.ask
 
-:${AUTO_INSTALL:0}
+AUTO_INSTALL=${AUTO_INSTALL:=0}
 function install_package() {
 	if is_linux && [ "$AUTO_INSTALL" == "1" ]; then
 		local prog="${1? param missing - please specify package name}"

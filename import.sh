@@ -1,9 +1,14 @@
+function debug() {
+	[[ "$DEBUG" == "1" ]] && echo "$@" 1>&2
+}
+
 # require import - which can be used by any local script
 function init() {
 	local DIR="${BASH_SOURCE%/*}"
 	if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 
 	for f in get_source_dir convert_package_to_filename ; do
+		debug "Import-init: $DIR/$f.sh"
 		source "$DIR/$f.sh"
 	done
 }
@@ -13,7 +18,7 @@ function init() {
 # it can import a full directory
 function import() {
 	#echo "$@"
-	local force=0
+	local force="0"
 	local DIR
 	local dependency
 	if (( $# > 1 )) && [[ "$1" == '-f' ]] ; then
@@ -23,10 +28,13 @@ function import() {
 	get_source_dir "DIR"
 	for module in $@ ; do
 		if [[ "$force" == "1" ]] || ! is_defined "$module" ; then
+			if [[ "$module" == 'import' ]] ; then continue ; fi
 			dependency="$( convert_package_to_filename "$DIR" "$module" )"
 			if [ -f $dependency ] ; then
+				debug "Import: $force $dependency"
 				source "$dependency"
 			elif [ -d ${dependency%.sh} ] ; then
+				debug "Import by dir: ${dependency%.sh}/*.sh"
 				source ${dependency%.sh}/*.sh
 			fi
 		fi

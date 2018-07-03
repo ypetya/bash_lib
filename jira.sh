@@ -1,6 +1,6 @@
 import chrome
 import user.config.load
-import string
+import string.is_empty string.match_regex
 
 function jira() {
 	local ticket_id="$1"

@@ -1,12 +1,14 @@
+
 Goals
 =====
 
-Bash library for people who do.
+The missing dependency framework in bash
 
 * Introduce a very easy to use utility belt for scripting
-* Construct a highly reusable module oriented framework, similar to js
-* Automatize everything
-* Try to use programming principles, where possible: clean code and SOLID
+* Construct a highly reusable module oriented framework
+
+* Create a utility-belt: automatize what you can
+* Apply programming principles, where possible: use clean code, keep SOLID
 * Introduce some high level scripting technics for bash: callbacks, IoC
 
 Howto
