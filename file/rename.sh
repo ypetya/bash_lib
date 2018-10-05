@@ -1,6 +1,7 @@
 import print.print
 import find.blacklist
 import string.match
+import user.ask
 
 function file.rename() {
 	local change_from="${1? param missing - change_from}"
