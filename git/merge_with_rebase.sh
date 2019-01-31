@@ -1,4 +1,4 @@
-# take two branch patterns : branch A, branch B. 
+# take two branch patterns : branch A, branch B.
 # Execute the following steps:
 # Update from remotes
 # Let the user to select branches

@@ -7,6 +7,6 @@ function git.is_local_branch() {
         print red 'No such local branch!\n'
         return 1
     fi
-    
+
     return 0
 }

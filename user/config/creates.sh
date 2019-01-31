@@ -34,4 +34,7 @@ function user.config.creates() {
 	user.ask "intellij idea unix-path?" idea_exe
 	echo "idea_exe=\"$idea_exe\"" >> ~/.user_config
 
+	user.ask "github.gist auth token?" github.gist.token
+	echo "github.gist.token=\"${github.gist.token}\"" >> ~/.user_config
+
 }

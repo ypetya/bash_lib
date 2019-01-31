@@ -18,7 +18,7 @@ function git.pull() {
 	else
   	git pull "$@"
   fi
-  
+
 	print green 'Done.\n'
   return $?
 }
